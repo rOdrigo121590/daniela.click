@@ -1,0 +1,759 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌟 TRANSFORMACIÓN TOTAL 360° - Recetas Funcionales Elite | Cambia Tu Vida en 90 Días</title>
+    <meta name="description" content="Programa completo de transformación 360° con más de 300 recetas funcionales + coaching personalizado + comunidad elite por solo $5,99. Garantía de resultados en 90 días.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#10B981',
+                        secondary: '#3B82F6',
+                        accent: '#F59E0B',
+                        danger: '#EF4444',
+                        success: '#22C55E',
+                        purple: '#8B5CF6',
+                    },
+                    fontFamily: {
+                        display: ['Playfair Display', 'serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                    keyframes: {
+                        'fade-in': {
+                            '0%': {
+                                opacity: '0',
+                                transform: 'translateY(10px)'
+                            },
+                            '100%': {
+                                opacity: '1',
+                                transform: 'translateY(0)'
+                            }
+                        },
+                        'scale-in': {
+                            '0%': {
+                                transform: 'scale(0.95)',
+                                opacity: '0'
+                            },
+                            '100%': {
+                                transform: 'scale(1)',
+                                opacity: '1'
+                            }
+                        },
+                        'slide-up': {
+                            '0%': {
+                                transform: 'translateY(20px)',
+                                opacity: '0'
+                            },
+                            '100%': {
+                                transform: 'translateY(0)',
+                                opacity: '1'
+                            }
+                        },
+                        'bounce-gentle': {
+                            '0%, 100%': {
+                                transform: 'translateY(0)'
+                            },
+                            '50%': {
+                                transform: 'translateY(-10px)'
+                            }
+                        },
+                        'glow': {
+                            '0%, 100%': {
+                                boxShadow: '0 0 20px rgba(16, 185, 129, 0.3)'
+                            },
+                            '50%': {
+                                boxShadow: '0 0 40px rgba(16, 185, 129, 0.6)'
+                            }
+                        }
+                    },
+                    animation: {
+                        'fade-in': 'fade-in 0.6s ease-out',
+                        'scale-in': 'scale-in 0.4s ease-out',
+                        'slide-up': 'slide-up 0.5s ease-out',
+                        'bounce-gentle': 'bounce-gentle 2s infinite',
+                        'glow': 'glow 2s infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #065F46 0%, #047857 25%, #059669 50%, #10B981 75%, #34D399 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #10B981, #34D399, #6EE7B7);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .pulse-ring {
+            animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+        
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.33);
+            }
+            40%, 50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: scale(1.2);
+            }
+        }
+        
+        .floating-element {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(1deg); }
+            66% { transform: translateY(-10px) rotate(-1deg); }
+        }
+        
+        .progress-bar {
+            animation: progress 3s ease-in-out infinite;
+        }
+        
+        @keyframes progress {
+            0% { width: 0%; }
+            50% { width: 100%; }
+            100% { width: 0%; }
+        }
+        
+        .number-counter {
+            animation: count-up 2s ease-out;
+        }
+        
+        @keyframes count-up {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body class="font-body bg-gray-50 text-gray-900">
+    <!-- Barra de Notificación Dinámica -->
+    <div class="bg-red-600 text-white py-2 overflow-hidden relative">
+        <div class="animate-pulse bg-red-500 absolute top-0 left-0 h-full progress-bar"></div>
+        <div class="relative z-10 text-center">
+            <p class="text-sm font-bold">🔥 <span id="viewers">2,847</span> personas viendo esta página AHORA • ⏰ Oferta expira en <span id="live-timer">23:59:42</span></p>
+        </div>
+    </div>
+
+    <!-- Hero Revolucionario -->
+    <section class="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden">
+        <!-- Elementos Flotantes -->
+        <div class="absolute top-20 left-10 floating-element">
+            <div class="w-20 h-20 bg-white/20 rounded-full blur-xl"></div>
+        </div>
+        <div class="absolute bottom-32 right-16 floating-element" style="animation-delay: -2s;">
+            <div class="w-32 h-32 bg-yellow-400/30 rounded-full blur-xl"></div>
+        </div>
+        <div class="absolute top-40 right-20 floating-element" style="animation-delay: -4s;">
+            <div class="w-16 h-16 bg-purple-400/40 rounded-full blur-xl"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-6xl mx-auto text-center text-white">
+                <!-- Badge Animado -->
+                <div class="inline-flex items-center bg-yellow-400 text-black px-6 py-3 rounded-full text-sm font-bold mb-8 animate-bounce-gentle">
+                    <span class="w-3 h-3 bg-red-500 rounded-full mr-3 pulse-ring"></span>
+                    🌟 PROGRAMA EXCLUSIVO DE TRANSFORMACIÓN TOTAL 360°
+                </div>
+                
+                <h1 class="text-5xl md:text-8xl font-display font-black mb-8 leading-tight animate-slide-up">
+                    Transforma Tu <span class="text-yellow-400">VIDA COMPLETA</span><br>
+                    en Solo <span class="text-gradient">90 Días</span>
+                </h1>
+                
+                <div class="animate-fade-in" style="animation-delay: 0.3s;">
+                    <p class="text-xl md:text-3xl mb-8 leading-relaxed font-medium">
+                        <strong>Sistema Completo de Transformación 360°:</strong><br>
+                        Salud + Belleza + Energía + Confianza + Estilo de Vida
+                    </p>
+                </div>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f7f7f7;
+    }h1 {
+      color: #333;
+    }
+
+    .imagem-container {
+      margin: 30px auto;
+      max-width: 800px;
+    }
+
+    .imagem-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+  </style>
+  <div class="imagem-container">
+    <img src="1755562358.png
+    " alt="Imagem de exemplo 1">               
+
+                <!-- Estadísticas Impresionantes -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12 animate-scale-in" style="animation-delay: 0.6s;">
+                    <div class="bg-white/20 backdrop-blur-md rounded-2xl p-6">
+                        <div class="text-4xl font-black text-yellow-400 number-counter">300+</div>
+                        <div class="text-sm font-medium">Recetas Elite</div>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur-md rounded-2xl p-6">
+                        <div class="text-4xl font-black text-yellow-400 number-counter">15,000+</div>
+                        <div class="text-sm font-medium">Vidas Transformadas</div>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur-md rounded-2xl p-6">
+                        <div class="text-4xl font-black text-yellow-400 number-counter">90</div>
+                        <div class="text-sm font-medium">Días Garantía</div>
+                    </div>
+                    <div class="bg-white/20 backdrop-blur-md rounded-2xl p-6">
+                        <div class="text-4xl font-black text-yellow-400 number-counter">24/7</div>
+                        <div class="text-sm font-medium">Soporte Elite</div>
+                    </div>
+                </div>
+
+                <!-- Oferta Principal -->
+                <div class="bg-black/70 backdrop-blur-md rounded-3xl p-8 mb-12 border-4 border-yellow-400 animate-glow">
+                    <div class="text-6xl mb-4">💎</div>
+                    <h2 class="text-3xl md:text-5xl font-display font-bold mb-6">
+                        PROGRAMA ELITE COMPLETO
+                    </h2>
+                    <div class="flex items-center justify-center space-x-4 mb-6">
+                        <span class="text-2xl line-through text-gray-400">$2,497</span>
+                        <span class="text-5xl font-black text-yellow-400">$5,99</span>
+                        <div class="bg-red-600 text-white px-4 py-2 rounded-xl transform -rotate-12">
+                            <span class="text-lg font-bold">98% OFF</span>
+                        </div>
+                    </div>
+                    <p class="text-xl mb-8">Programa de transformación más completo del mercado</p>
+                    
+                    <button class="bg-gradient-to-r from-yellow-400 to-orange-500 text-black text-2xl font-black py-6 px-12 rounded-2xl hover:scale-105 transform transition-all duration-300 shadow-2xl animate-bounce-gentle">
+                        🚀 INICIAR MI TRANSFORMACIÓN TOTAL AHORA
+                    </button>
+                    
+                    <div class="flex justify-center items-center space-x-8 mt-6 text-sm">
+                        <div class="flex items-center space-x-2">
+                            <div class="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center">✓</div>
+                            <span>Acceso inmediato</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center">✓</div>
+                            <span>Garantía 90 días</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <div class="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center">✓</div>
+                            <span>Coaching incluido</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Proof Dinámico -->
+                <div class="flex flex-wrap justify-center items-center gap-8 text-lg">
+                    <div class="flex items-center space-x-2">
+                        <div class="flex">
+                            <span class="text-yellow-400 text-2xl">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <span>4.9/5 (12,847 reseñas)</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <span class="text-green-400 animate-pulse">🟢</span>
+                        <span>+200 personas se unieron HOY</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sistema de Transformación 360° -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="inline-block bg-primary text-white px-6 py-3 rounded-full text-sm font-bold mb-6">
+                    ⚡ SISTEMA REVOLUCIONARIO
+                </div>
+                <h2 class="text-4xl md:text-6xl font-display font-bold mb-8">
+                    <span class="text-gradient">Transformación 360°</span><br>
+                    Método Probado Científicamente
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    El único programa que aborda TODOS los aspectos de tu bienestar de forma integral 
+                    para resultados permanentes y transformación completa.
+                </p>
+            </div>
+
+            <!-- Proceso de 4 Fases -->
+            <div class="grid md:grid-cols-4 gap-8 max-w-7xl mx-auto">
+                <div class="relative group">
+                    <div class="card-hover bg-gradient-to-br from-emerald-500 to-teal-600 rounded-3xl p-8 text-white text-center h-full">
+                        <div class="text-6xl mb-6">🌱</div>
+                        <div class="bg-white text-emerald-600 w-12 h-12 rounded-full flex items-center justify-center text-2xl font-black mb-4 mx-auto">1</div>
+                        <h3 class="text-2xl font-bold mb-4">DETOX PROFUNDO</h3>
+                        <p class="text-emerald-100 leading-relaxed">
+                            Limpieza celular completa, eliminación de toxinas y preparación del organismo para la transformación.
+                        </p>
+                        <div class="mt-6 space-y-2 text-left text-sm">
+                            <div class="flex items-center space-x-2">
+                                <span class="text-yellow-400">✓</span>
+                                <span>21 días de detox guiado</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-yellow-400">✓</span>
+                                <span>Recetas desintoxicantes</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-yellow-400">✓</span>
+                                <span>Suplementación natural</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -right-4 top-1/2 transform -translate-y-1/2 text-4xl animate-bounce-gentle hidden md:block">→</div>
+                </div>
+
+                <div class="relative group">
+                    <div class="card-hover bg-gradient-to-br from-blue-500 to-indigo-600 rounded-3xl p-8 text-white text-center h-full">
+                        <div class="text-6xl mb-6">🔥</div>
+                        <div class="bg-white text-blue-600 w-12 h-12 rounded-full flex items-center justify-center text-2xl font-black mb-4 mx-auto">2</div>
+                        <h3 class="text-2xl font-bold mb-4">ACTIVACIÓN</h3>
+                        <p class="text-blue-100 leading-relaxed">
+                            Aceleración del metabolismo, quema de grasa optimizada y construcción de masa muscular magra.
+                        </p>
+                        <div class="mt-6 space-y-2 text-left text-sm">
+                            <div class="flex items-center space-x-2">
+                                <span class="text-yellow-400">✓</span>
+                                <span>Metabolismo acelerado</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-yellow-400">✓</span>
+                                <span>Quema grasa 24/7</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-yellow-400">✓</span>
+                                <span>Rutinas de ejercicio</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -right-4 top-1/2 transform -translate-y-1/2 text-4xl animate-bounce-gentle hidden md:block">→</div>
+                </div>
+
+                <div class="relative group">
+                    <div class="card-hover bg-gradient-to-br from-purple-500 to-pink-600 rounded-3xl p-8 text-white text-center h-full">
+                        <div class="text-6xl mb-6">✨</div>
+                        <div class="bg-white text-purple-600 w-12 h-12 rounded-full flex items-center justify-center text-2xl font-black mb-4 mx-auto">3</div>
+                        <h3 class="text-2xl font-bold mb-4">TRANSFORMACIÓN</h3>
+                        <p class="text-purple-100 leading-relaxed">
+                            Cambios visibles en piel, cabello, energía y composición corporal. Belleza radiante desde adentro.
+                        </p>
+                        <div class="mt-6 space-y-2 text-left text-sm">
+                            <div class="flex items-center space-x-2">
+                                <span class="text-yellow-400">✓</span>
+                                <span>Piel radiante</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-yellow-400">✓</span>
+                                <span>Cabello fuerte</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-yellow-400">✓</span>
+                                <span>Energía ilimitada</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute -right-4 top-1/2 transform -translate-y-1/2 text-4xl animate-bounce-gentle hidden md:block">→</div>
+                </div>
+
+                <div class="group">
+                    <div class="card-hover bg-gradient-to-br from-yellow-500 to-orange-600 rounded-3xl p-8 text-white text-center h-full">
+                        <div class="text-6xl mb-6">👑</div>
+                        <div class="bg-white text-yellow-600 w-12 h-12 rounded-full flex items-center justify-center text-2xl font-black mb-4 mx-auto">4</div>
+                        <h3 class="text-2xl font-bold mb-4">MANTENIMIENTO</h3>
+                        <p class="text-yellow-100 leading-relaxed">
+                            Consolidación de resultados y creación de hábitos permanentes para una vida plena y saludable.
+                        </p>
+                        <div class="mt-6 space-y-2 text-left text-sm">
+                            <div class="flex items-center space-x-2">
+                                <span class="text-yellow-400">✓</span>
+                                <span>Hábitos permanentes</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-yellow-400">✓</span>
+                                <span>Resultados duraderos</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <span class="text-yellow-400">✓</span>
+                                <span>Vida plena</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mega Pack de Contenido -->
+    <section class="py-20 bg-gradient-to-br from-gray-900 to-black text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <div class="text-8xl mb-8">🎯</div>
+                <h2 class="text-4xl md:text-6xl font-display font-bold mb-8">
+                    <span class="text-gradient">MEGA PACK ELITE</span><br>
+                    Contenido Exclusivo por Valor de $2,497
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    El programa más completo y valioso del mercado, diseñado por expertos internacionales.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+                <!-- Módulo Principal -->
+                <div class="lg:col-span-2 space-y-8">
+                    <div class="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-3xl p-8 card-hover">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-3xl font-bold">📚 BIBLIOTECA ELITE DE RECETAS</h3>
+                            <div class="bg-yellow-400 text-black px-4 py-2 rounded-xl font-bold">$497</div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="text-xl font-bold mb-4 text-yellow-400">🥗 Recetas Principales (150+)</h4>
+                                <ul class="space-y-2 text-sm">
+                                    <li>✓ Desayunos energizantes</li>
+                                    <li>✓ Almuerzos equilibrados</li>
+                                    <li>✓ Cenas reparadoras</li>
+                                    <li>✓ Opciones veganas y keto</li>
+                                    <li>✓ Sin gluten y sin lácteos</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-4 text-yellow-400">🥤 Bebidas Funcionales (80+)</h4>
+                                <ul class="space-y-2 text-sm">
+                                    <li>✓ Smoothies detox</li>
+                                    <li>✓ Jugos anti-aging</li>
+                                    <li>✓ Tés medicinales</li>
+                                    <li>✓ Bebidas energizantes naturales</li>
+                                    <li>✓ Elixires de belleza</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-6">
+                            <h4 class="text-xl font-bold mb-4 text-yellow-400">🍰 Postres Saludables (70+)</h4>
+                            <p class="text-emerald-100">Recetas dulces sin culpa, endulzadas naturalmente y llenas de nutrientes.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-3xl p-8 card-hover">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="text-3xl font-bold">🎯 PROGRAMA DE COACHING PERSONALIZADO</h3>
+                            <div class="bg-yellow-400 text-black px-4 py-2 rounded-xl font-bold">$697</div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <h4 class="text-xl font-bold mb-4 text-yellow-400">👩‍⚕️ Seguimiento Personal</h4>
+                                <ul class="space-y-2 text-sm">
+                                    <li>✓ Evaluación inicial completa</li>
+                                    <li>✓ Plan personalizado 90 días</li>
+                                    <li>✓ Ajustes semanales</li>
+                                    <li>✓ Soporte 24/7 por WhatsApp</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold mb-4 text-yellow-400">📊 Herramientas de Seguimiento</h4>
+                                <ul class="space-y-2 text-sm">
+                                    <li>✓ App móvil exclusiva</li>
+                                    <li>✓ Medición de progreso</li>
+                                    <li>✓ Recordatorios inteligentes</li>
+                                    <li>✓ Análisis de resultados</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bonos Exclusivos -->
+                <div class="space-y-6">
+                    <div class="bg-gradient-to-br from-purple-600 to-pink-700 rounded-3xl p-6 card-hover">
+                        <div class="text-center mb-4">
+                            <div class="text-4xl mb-2">💄</div>
+                            <h3 class="text-xl font-bold">BELLEZA TOTAL</h3>
+                            <div class="bg-yellow-400 text-black px-3 py-1 rounded-lg text-sm font-bold mt-2">$297</div>
+                        </div>
+                        <ul class="space-y-2 text-sm">
+                            <li>✓ Rutina facial anti-aging</li>
+                            <li>✓ Mascarillas caseras</li>
+                            <li>✓ Cuidado capilar natural</li>
+                            <li>✓ Tratamientos corporales</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-orange-600 to-red-700 rounded-3xl p-6 card-hover">
+                        <div class="text-center mb-4">
+                            <div class="text-4xl mb-2">🏃‍♀️</div>
+                            <h3 class="text-xl font-bold">FITNESS FUNCIONAL</h3>
+                            <div class="bg-yellow-400 text-black px-3 py-1 rounded-lg text-sm font-bold mt-2">$397</div>
+                        </div>
+                        <ul class="space-y-2 text-sm">
+                            <li>✓ 90 rutinas de ejercicio</li>
+                            <li>✓ Videos HD paso a paso</li>
+                            <li>✓ Planes por nivel</li>
+                            <li>✓ Stretching y yoga</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-teal-600 to-cyan-700 rounded-3xl p-6 card-hover">
+                        <div class="text-center mb-4">
+                            <div class="text-4xl mb-2">🧘‍♀️</div>
+                            <h3 class="text-xl font-bold">MINDSET & BIENESTAR</h3>
+                            <div class="bg-yellow-400 text-black px-3 py-1 rounded-lg text-sm font-bold mt-2">$197</div>
+                        </div>
+                        <ul class="space-y-2 text-sm">
+                            <li>✓ Meditaciones guiadas</li>
+                            <li>✓ Técnicas de relajación</li>
+                            <li>✓ Gestión del estrés</li>
+                            <li>✓ Desarrollo personal</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-yellow-600 to-orange-700 rounded-3xl p-6 card-hover">
+                        <div class="text-center mb-4">
+                            <div class="text-4xl mb-2">👥</div>
+                            <h3 class="text-xl font-bold">COMUNIDAD ELITE</h3>
+                            <div class="bg-yellow-400 text-black px-3 py-1 rounded-lg text-sm font-bold mt-2">$197</div>
+                        </div>
+                        <ul class="space-y-2 text-sm">
+                            <li>✓ Grupo privado VIP</li>
+                            <li>✓ Lives semanales</li>
+                            <li>✓ Recetas exclusivas</li>
+                            <li>✓ Red de apoyo global</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-indigo-600 to-purple-700 rounded-3xl p-6 card-hover">
+                        <div class="text-center mb-4">
+                            <div class="text-4xl mb-2">📱</div>
+                            <h3 class="text-xl font-bold">APP MÓVIL PREMIUM</h3>
+                            <div class="bg-yellow-400 text-black px-3 py-1 rounded-lg text-sm font-bold mt-2">$197</div>
+                        </div>
+                        <ul class="space-y-2 text-sm">
+                            <li>✓ Acceso offline</li>
+                            <li>✓ Calculadora nutricional</li>
+                            <li>✓ Lista de compras automática</li>
+                            <li>✓ Temporizador de comidas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resumen de Valor -->
+            <div class="mt-16 bg-black/50 backdrop-blur-md rounded-3xl p-12 max-w-4xl mx-auto text-center border-4 border-yellow-400">
+                <h3 class="text-3xl font-bold mb-8">📊 VALOR TOTAL DEL PROGRAMA ELITE</h3>
+                <div class="grid md:grid-cols-2 gap-8 text-left">
+                    <div class="space-y-3">
+                        <div class="flex justify-between text-lg">
+                            <span>Biblioteca Elite de Recetas:</span>
+                            <span className="font-bold">$497</span>
+                        </div>
+                        <div class="flex justify-between text-lg">
+                            <span>Coaching Personalizado:</span>
+                            <span className="font-bold">$697</span>
+                        </div>
+                        <div class="flex justify-between text-lg">
+                            <span>Programa Belleza Total:</span>
+                            <span className="font-bold">$297</span>
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <div class="flex justify-between text-lg">
+                            <span>Fitness Funcional:</span>
+                            <span className="font-bold">$397</span>
+                        </div>
+                        <div class="flex justify-between text-lg">
+                            <span>Mindset & Bienestar:</span>
+                            <span className="font-bold">$197</span>
+                        </div>
+                        <div class="flex justify-between text-lg">
+                            <span>Comunidad + App Premium:</span>
+                            <span className="font-bold">$394</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t-4 border-yellow-400 mt-6 pt-6">
+                    <div class="flex justify-between items-center text-4xl font-black text-yellow-400 mb-6">
+                        <span>VALOR TOTAL:</span>
+                        <span>$2,479</span>
+                    </div>
+                    <div class="bg-red-600 text-white py-6 px-8 rounded-2xl transform rotate-1 shadow-2xl">
+                        <p class="text-5xl font-black mb-2">HOY SOLO: $5,99</p>
+                        <p class="text-2xl">¡AHORRO DE +$2,400!</p>
+                        <p class="text-lg">98.5% DE DESCUENTO</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Principal con Urgencia -->
+    <section class="py-20 bg-gradient-to-br from-primary to-emerald-600 text-white relative overflow-hidden">
+        <div class="absolute inset-0 bg-black opacity-20"></div>
+        <div class="container mx-auto px-6 relative z-10 text-center">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-8xl mb-8 animate-bounce-gentle">🚀</div>
+                <h2 class="text-4xl md:text-7xl font-display font-black mb-8">
+                    ¡TRANSFORMA TU VIDA<br>
+                    <span class="text-yellow-400">AHORA MISMO!</span>
+                </h2>
+                
+                <div class="bg-black/70 backdrop-blur-md rounded-3xl p-12 mb-12 border-4 border-yellow-400 animate-glow">
+                    <p class="text-2xl mb-8 leading-relaxed">
+                        No esperes más. Miles de personas ya han transformado sus vidas con nuestro 
+                        <strong>Sistema Elite de Transformación 360°</strong>. Es tu momento de brillar.
+                    </p>
+                    
+                    <div class="space-y-8">
+                        <div class="grid md:grid-cols-3 gap-6 text-center">
+                            <div class="bg-white/20 rounded-2xl p-6">
+                                <div class="text-4xl mb-2">⚡</div>
+                                <h3 class="text-xl font-bold mb-2">ACCESO INMEDIATO</h3>
+                                <p class="text-sm">Comienza tu transformación en menos de 2 minutos</p>
+                            </div>
+                            <div class="bg-white/20 rounded-2xl p-6">
+                                <div class="text-4xl mb-2">🛡️</div>
+                                <h3 class="text-xl font-bold mb-2">GARANTÍA 90 DÍAS</h3>
+                                <p class="text-sm">Riesgo cero. Resultados garantizados o tu dinero de vuelta</p>
+                            </div>
+                            <div class="bg-white/20 rounded-2xl p-6">
+                                <div class="text-4xl mb-2">👥</div>
+                                <h3 class="text-xl font-bold mb-2">SOPORTE 24/7</h3>
+                                <p class="text-sm">Acompañamiento personalizado todos los días</p>
+                            </div>
+                        </div>
+                        
+                        <button class="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 text-black text-3xl font-black py-8 px-16 rounded-3xl hover:scale-105 transform transition-all duration-300 shadow-2xl w-full animate-bounce-gentle">
+                            🌟 SÍ, QUIERO MI TRANSFORMACIÓN TOTAL POR $5,99 🌟
+                        </button>
+                        
+                        <div class="text-lg space-y-2">
+                            <p>💳 <strong>Pago 100% seguro</strong> • Encriptación SSL • </p>
+                            <p>📱 <strong>Compatible con todos los dispositivos</strong> • Acceso de por vida</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-red-600/90 backdrop-blur-sm rounded-2xl p-8 transform -rotate-1 shadow-2xl">
+                    <p class="text-2xl font-bold mb-2">⚠️ ÚLTIMA OPORTUNIDAD:</p>
+                    <p class="text-xl">Esta oferta desaparece en <span id="final-timer" class="text-yellow-400 font-black">23:47:35</span></p>
+                    <p class="text-lg">Solo <span class="text-yellow-400 font-bold">12 cupos disponibles</span> al precio especial</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 text-white">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400 mb-6">© 2024 Transformación Total 360°. Todos los derechos reservados.</p>
+            <div class="flex justify-center space-x-6 text-sm text-gray-400">
+                <a href="#" class="hover:text-white transition-colors">Términos y Condiciones</a>
+                <a href="#" class="hover:text-white transition-colors">Política de Privacidad</a>
+                <a href="#" class="hover:text-white transition-colors">Soporte</a>
+                <a href="#" class="hover:text-white transition-colors">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Live Timer
+        function updateLiveTimer() {
+            const now = new Date();
+            const endTime = new Date(now.getTime() + (23 * 60 + 59) * 60 * 1000 + 42 * 1000);
+            const timeDiff = endTime - now;
+            
+            const hours = Math.floor(timeDiff / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+            
+            const timeString = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            
+            document.getElementById('live-timer').textContent = timeString;
+            document.getElementById('final-timer').textContent = timeString;
+        }
+
+        // Update timer every second
+        setInterval(updateLiveTimer, 1000);
+        updateLiveTimer();
+
+        // Simulate live viewers
+        let viewers = 2847;
+        setInterval(() => {
+            const change = Math.floor(Math.random() * 10) - 5;
+            viewers = Math.max(2500, Math.min(3200, viewers + change));
+            document.getElementById('viewers').textContent = viewers.toLocaleString();
+        }, 15000);
+
+        // Animate numbers on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all card-hover elements
+        document.querySelectorAll('.card-hover').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Button click handlers
+        document.querySelectorAll('button').forEach(button => {
+            if (button.textContent.includes('TRANSFORMACIÓN') || button.textContent.includes('INICIAR')) {
+                button.addEventListener('click', function() {
+                    alert('¡Perfecto! Redirigiendo al checkout seguro...');
+                });
+            }
+        });
+
+        // Smooth scrolling for any anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

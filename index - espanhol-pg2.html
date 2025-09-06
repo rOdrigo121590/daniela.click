@@ -1,0 +1,732 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recetas Funcionales - Transforma tu Salud y Belleza Naturalmente</title>
+    <meta name="description" content="Descubre más de 100 recetas funcionales sin gluten, sin azúcar refinada y sin leche de vaca. Promueve belleza radiante, adelgazamiento saludable y bienestar integral a través de la alimentación funcional por Danielle Rocha." />
+    
+    <meta property="og:title" content="Recetas Funcionales - Transforma tu Salud y Belleza Naturalmente" />
+    <meta property="og:description" content="Descubre más de 100 recetas funcionales sin gluten, sin azúcar refinada y sin leche de vaca. Promueve belleza radiante, adelgazamiento saludable y bienestar integral a través de la alimentación funcional por Danielle Rocha." />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@lovable_dev" />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    
+    <style>
+        /* Reset y Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Colores principales */
+            --primary: 142 76% 36%;
+            --primary-dark: 142 76% 28%;
+            --primary-light: 142 76% 50%;
+            --primary-glow: 142 76% 45%;
+            
+            /* Colores de apoyo */
+            --accent: 35 100% 60%;
+            --accent-light: 35 100% 70%;
+            --accent-foreground: 24 100% 10%;
+            
+            /* Fondos */
+            --background: 0 0% 100%;
+            --foreground: 222 15% 13%;
+            --card: 0 0% 100%;
+            --card-foreground: 222 15% 13%;
+            --muted: 210 40% 96%;
+            --muted-foreground: 215.4 16.3% 46.9%;
+            --border: 214.3 31.8% 91.4%;
+            
+            /* Gradientes */
+            --gradient-hero: linear-gradient(135deg, hsl(var(--primary-light)) 0%, hsl(var(--primary)) 50%, hsl(var(--primary-dark)) 100%);
+            --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-glow)) 100%);
+            --gradient-card: linear-gradient(145deg, hsl(var(--muted) / 0.3) 0%, hsl(var(--background)) 100%);
+            --card-gradient: linear-gradient(145deg, hsl(var(--card)) 0%, hsl(var(--muted) / 0.2) 100%);
+            
+            /* Sombras */
+            --shadow-soft: 0 4px 20px -5px hsl(var(--primary) / 0.1);
+            --shadow-medium: 0 8px 30px -8px hsl(var(--primary) / 0.15);
+            --shadow-strong: 0 15px 40px -10px hsl(var(--primary) / 0.2);
+            --text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: hsl(var(--foreground));
+            background: hsl(var(--background));
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Tipografía */
+        .font-display {
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+        }
+        
+        .text-primary { color: hsl(var(--primary)); }
+        .text-primary-dark { color: hsl(var(--primary-dark)); }
+        .text-accent { color: hsl(var(--accent)); }
+        .text-accent-light { color: hsl(var(--accent-light)); }
+        .text-accent-foreground { color: hsl(var(--accent-foreground)); }
+        .text-muted-foreground { color: hsl(var(--muted-foreground)); }
+        .text-foreground { color: hsl(var(--foreground)); }
+        .text-white { color: white; }
+        .text-shadow { text-shadow: var(--text-shadow); }
+        
+        /* Fondos */
+        .bg-gradient-hero { background: var(--gradient-hero); }
+        .bg-gradient-primary { background: var(--gradient-primary); }
+        .bg-gradient-card { background: var(--gradient-card); }
+        .bg-card-gradient { background: var(--card-gradient); }
+        .bg-primary-light { background: hsl(var(--primary-light)); }
+        .bg-card { background: hsl(var(--card)); }
+        
+        /* Botones */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            border: none;
+            font-family: inherit;
+        }
+        
+        .btn-cta {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 18px 36px;
+            font-size: 18px;
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-strong);
+        }
+        
+        .btn-secondary {
+            background: hsl(var(--accent));
+            color: hsl(var(--accent-foreground));
+            padding: 18px 36px;
+            font-size: 18px;
+        }
+        
+        .btn-secondary:hover {
+            background: hsl(var(--accent-light));
+        }
+        
+        /* Layout */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 48px;
+            align-items: center;
+        }
+        
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+        
+        /* Cards */
+        .card {
+            background: var(--card-gradient);
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: var(--shadow-soft);
+            border: 1px solid hsl(var(--border) / 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            box-shadow: var(--shadow-medium);
+        }
+        
+        /* Utilitarios */
+        .text-center { text-align: center; }
+        .mb-6 { margin-bottom: 24px; }
+        .mb-8 { margin-bottom: 32px; }
+        .mb-10 { margin-bottom: 40px; }
+        .mb-12 { margin-bottom: 48px; }
+        .mb-16 { margin-bottom: 64px; }
+        .mt-8 { margin-top: 32px; }
+        .mt-10 { margin-top: 40px; }
+        .mt-12 { margin-top: 48px; }
+        .mt-16 { margin-top: 64px; }
+        .space-y-4 > * + * { margin-top: 16px; }
+        .space-y-6 > * + * { margin-top: 24px; }
+        .leading-relaxed { line-height: 1.75; }
+        .font-bold { font-weight: 700; }
+        .font-semibold { font-weight: 600; }
+        .font-medium { font-weight: 500; }
+        .italic { font-style: italic; }
+        .line-through { text-decoration: line-through; }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            
+            .container {
+                padding: 0 16px;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            h1 {
+                font-size: 2.5rem !important;
+            }
+            
+            h2 {
+                font-size: 2rem !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Hero Section -->
+    <section class="section bg-gradient-hero text-white">
+        <div class="container text-center">
+            <h1 class="font-display font-bold mb-6 text-shadow" style="font-size: 3.5rem; line-height: 1.1;">
+                Transforma tu <span style="color: hsl(var(--accent-light));">Salud y Belleza</span><br>
+                con el Poder de la Alimentación Funcional
+            </h1>
+            
+            <p class="mb-12 leading-relaxed" style="font-size: 1.25rem; max-width: 800px; margin-left: auto; margin-right: auto; opacity: 0.95;">
+                Descubre más de <strong>100 recetas deliciosas</strong> sin gluten, sin azúcar refinada 
+                y sin leche de vaca que revolucionarán tu salud, realzarán tu belleza natural 
+                y te darán la energía que siempre soñaste tener.
+            </p>
+             <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f7f7f7;
+    }h1 {
+      color: #333;
+    }
+
+    .imagem-container {
+      margin: 30px auto;
+      max-width: 800px;
+    }
+
+    .imagem-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+  </style>
+  <div class="imagem-container">
+    <img src="1755562358.png
+    " alt="Imagem de exemplo 1">
+            <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 16px; padding: 32px; margin-bottom: 40px; border: 1px solid rgba(255,255,255,0.2);">
+                <h3 class="font-display font-bold mb-6" style="font-size: 1.5rem;">
+                    ✨ Resultados que vas a sentir:
+                </h3>
+                
+                <div class="grid-2" style="text-align: left;">
+                    <div class="space-y-4">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span style="width: 24px; height: 24px; background: hsl(var(--accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: hsl(var(--accent-foreground)); font-size: 12px; font-weight: bold;">✓</span>
+                            <span>Piel radiante y cabello más fuerte</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span style="width: 24px; height: 24px; background: hsl(var(--accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: hsl(var(--accent-foreground)); font-size: 12px; font-weight: bold;">✓</span>
+                            <span>Adelgazamiento natural y saludable</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span style="width: 24px; height: 24px; background: hsl(var(--accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: hsl(var(--accent-foreground)); font-size: 12px; font-weight: bold;">✓</span>
+                            <span>Reducción de la ansiedad y estrés</span>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span style="width: 24px; height: 24px; background: hsl(var(--accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: hsl(var(--accent-foreground)); font-size: 12px; font-weight: bold;">✓</span>
+                            <span>Control de la glucemia y colesterol</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span style="width: 24px; height: 24px; background: hsl(var(--accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: hsl(var(--accent-foreground)); font-size: 12px; font-weight: bold;">✓</span>
+                            <span>Más energía y vitalidad</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span style="width: 24px; height: 24px; background: hsl(var(--accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: hsl(var(--accent-foreground)); font-size: 12px; font-weight: bold;">✓</span>
+                            <span>Mejora del sueño y bienestar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="#cta" class="btn btn-cta font-bold">
+                SÍ, QUIERO TRANSFORMAR MI VIDA
+            </a>
+            
+            <p style="font-size: 14px; margin-top: 24px; opacity: 0.8;">
+                ⚡ Acceso inmediato • 📱 Funciona en cualquier dispositivo • 🛡️ Garantía de 7 días
+            </p>
+        </div>
+    </section>
+
+    <!-- Pain Points Section -->
+    <section class="section" style="background: hsl(var(--muted) / 0.3);">
+        <div class="container">
+            <div class="text-center mb-16">
+                <h2 class="font-display font-bold mb-6" style="font-size: 2.5rem;">
+                    ¿Te identificas con alguna de estas situaciones?
+                </h2>
+                <p style="font-size: 1.25rem; color: hsl(var(--muted-foreground)); max-width: 600px; margin: 0 auto;">
+                    Si respondiste sí a al menos una, no estás sola. 
+                    Miles de personas ya pasaron por esto y encontraron la solución.
+                </p>
+            </div>
+
+            <div class="grid-2">
+                <div class="card">
+                    <div style="font-size: 3rem; margin-bottom: 16px;">😔</div>
+                    <h3 class="font-display font-semibold mb-6 text-primary-dark" style="font-size: 1.5rem;">
+                        ¿Piel sin brillo y cabello débil?
+                    </h3>
+                    <p style="font-size: 1.125rem; color: hsl(var(--muted-foreground)); line-height: 1.75;">
+                        ¿Ya probaste mil productos pero tu piel sigue opaca y tu cabello sin vida?
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div style="font-size: 3rem; margin-bottom: 16px;">⚖️</div>
+                    <h3 class="font-display font-semibold mb-6 text-primary-dark" style="font-size: 1.5rem;">
+                        ¿Dificultad para adelgazar?
+                    </h3>
+                    <p style="font-size: 1.125rem; color: hsl(var(--muted-foreground)); line-height: 1.75;">
+                        ¿Hiciste varias dietas pero el peso se resiste a bajar y te sientes frustrada?
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div style="font-size: 3rem; margin-bottom: 16px;">😰</div>
+                    <h3 class="font-display font-semibold mb-6 text-primary-dark" style="font-size: 1.5rem;">
+                        ¿Ansiedad y estrés constantes?
+                    </h3>
+                    <p style="font-size: 1.125rem; color: hsl(var(--muted-foreground)); line-height: 1.75;">
+                        ¿Vives con la sensación de cansancio, ansiedad y falta de energía para el día a día?
+                    </p>
+                </div>
+
+                <div class="card">
+                    <div style="font-size: 3rem; margin-bottom: 16px;">🩺</div>
+                    <h3 class="font-display font-semibold mb-6 text-primary-dark" style="font-size: 1.5rem;">
+                        ¿Problemas de salud recurrentes?
+                    </h3>
+                    <p style="font-size: 1.125rem; color: hsl(var(--muted-foreground)); line-height: 1.75;">
+                        ¿Colesterol, glucemia y triglicéridos siempre alterados en tus análisis?
+                    </p>
+                </div>
+            </div>
+
+            <div class="text-center mt-16">
+                <div style="display: inline-block; background: hsl(var(--accent) / 0.1); border: 1px solid hsl(var(--accent) / 0.2); border-radius: 12px; padding: 24px;">
+                    <p style="font-size: 1.125rem; font-weight: 500; color: hsl(var(--accent-foreground));">
+                        💡 <strong>La buena noticia es:</strong> ¡La solución está más cerca de lo que imaginas!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section bg-gradient-card">
+        <div class="container">
+            <div class="text-center mb-16">
+                <h2 class="font-display font-bold mb-6" style="font-size: 2.5rem;">
+                    Descubre el poder de las <span class="text-primary">Recetas Funcionales</span>
+                </h2>
+                <p style="font-size: 1.25rem; color: hsl(var(--muted-foreground)); max-width: 800px; margin: 0 auto;">
+                    Más de 100 recetas cuidadosamente desarrolladas para nutrir tu cuerpo, 
+                    realzar tu belleza y transformar tu calidad de vida desde adentro hacia afuera.
+                </p>
+            </div>
+
+            <div class="grid-3">
+                <div class="card text-center">
+                    <div style="font-size: 3rem; margin-bottom: 16px;">🌱</div>
+                    <h3 class="font-display font-semibold mb-6 text-primary-dark" style="font-size: 1.25rem;">
+                        100% Naturales
+                    </h3>
+                    <p style="color: hsl(var(--muted-foreground));">
+                        Ingredientes puros y funcionales que nutren tu cuerpo de forma integral
+                    </p>
+                </div>
+
+                <div class="card text-center">
+                    <div style="font-size: 3rem; margin-bottom: 16px;">🚫</div>
+                    <h3 class="font-display font-semibold mb-6 text-primary-dark" style="font-size: 1.25rem;">
+                        Sin Gluten
+                    </h3>
+                    <p style="color: hsl(var(--muted-foreground));">
+                        Recetas libres de gluten para reducir inflamaciones y mejorar la digestión
+                    </p>
+                </div>
+
+                <div class="card text-center">
+                    <div style="font-size: 3rem; margin-bottom: 16px;">🍯</div>
+                    <h3 class="font-display font-semibold mb-6 text-primary-dark" style="font-size: 1.25rem;">
+                        Sin Azúcar Refinada
+                    </h3>
+                    <p style="color: hsl(var(--muted-foreground));">
+                        Endulzantes naturales que no causan picos de insulina
+                    </p>
+                </div>
+
+                <div class="card text-center">
+                    <div style="font-size: 3rem; margin-bottom: 16px;">🥥</div>
+                    <h3 class="font-display font-semibold mb-6 text-primary-dark" style="font-size: 1.25rem;">
+                        Sin Leche de Vaca
+                    </h3>
+                    <p style="color: hsl(var(--muted-foreground));">
+                        Alternativas vegetales nutritivas y más digestivas
+                    </p>
+                </div>
+
+                <div class="card text-center">
+                    <div style="font-size: 3rem; margin-bottom: 16px;">⚡</div>
+                    <h3 class="font-display font-semibold mb-6 text-primary-dark" style="font-size: 1.25rem;">
+                        Low Carb
+                    </h3>
+                    <p style="color: hsl(var(--muted-foreground));">
+                        Opciones low carb para acelerar el adelgazamiento saludable
+                    </p>
+                </div>
+
+                <div class="card text-center">
+                    <div style="font-size: 3rem; margin-bottom: 16px;">👨‍🍳</div>
+                    <h3 class="font-display font-semibold mb-6 text-primary-dark" style="font-size: 1.25rem;">
+                        Fáciles de Hacer
+                    </h3>
+                    <p style="color: hsl(var(--muted-foreground));">
+                        Recetas prácticas que se adaptan a tu rutina ocupada
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Author Section -->
+    <section class="section bg-gradient-card">
+        <div class="container">
+            <div class="grid-2">
+                <div style="position: relative;">
+                    <div style="width: 100%; max-width: 400px; margin: 0 auto;">
+                        <div style="background: var(--gradient-primary); border-radius: 24px; padding: 4px;">
+                            <div class="bg-card" style="border-radius: 20px; padding: 32px; text-align: center;">
+                                <div style="width: 192px; height: 192px; margin: 0 auto 24px; background: hsl(var(--primary-light)); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                                    <span style="font-size: 4rem;">👩‍⚕️</span>
+                                </div>
+                                <h3 class="font-display font-bold text-primary-dark mb-2" style="font-size: 1.5rem;">
+                                    Danielag
+                                </h3>
+                                <p class="text-primary font-medium">
+                                    Especialista en Nutrición Funcional
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h2 class="font-display font-bold mb-8" style="font-size: 2.5rem;">
+                        Conoce a quien va a guiarte en esta{" "}
+                        <span class="text-primary">transformación</span>
+                    </h2>
+                    
+                    <div class="space-y-6" style="font-size: 1.125rem; color: hsl(var(--muted-foreground)); line-height: 1.75;">
+                        <p>
+                            <strong style="color: hsl(var(--foreground));">Daniela</strong> es referencia en nutrición funcional 
+                            y ha dedicado su carrera a ayudar a las personas a descubrir el poder transformador 
+                            de la alimentación consciente.
+                        </p>
+                        
+                        <p>
+                            Con años de experiencia y cientos de casos de éxito, desarrolló un método 
+                            único que combina <strong class="text-primary">sabor, practicidad y resultados reales</strong>.
+                        </p>
+                        
+                        <p>
+                            Sus recetas funcionales ya transformaron la vida de miles de personas, 
+                            proporcionando no solo salud, sino también belleza y bienestar duraderos.
+                        </p>
+                    </div>
+
+                    <div class="mt-8 space-y-4">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span style="width: 24px; height: 24px; background: hsl(var(--primary)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">✓</span>
+                            <span>Especialista en Nutrición Funcional</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span style="width: 24px; height: 24px; background: hsl(var(--primary)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">✓</span>
+                            <span>+10 años de experiencia</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span style="width: 24px; height: 24px; background: hsl(var(--primary)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 12px;">✓</span>
+                            <span>Miles de transformaciones reales</span>
+                        </div>
+                    </div>
+
+                    <div class="mt-10">
+                        <a href="#cta" class="btn btn-cta">
+                            Quiero comenzar mi transformación ahora
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section" style="background: hsl(var(--muted) / 0.2);">
+        <div class="container">
+            <div class="text-center mb-16">
+                <h2 class="font-display font-bold mb-6" style="font-size: 2.5rem;">
+                    Mira los resultados de quienes ya transformaron su vida
+                </h2>
+                <p style="font-size: 1.25rem; color: hsl(var(--muted-foreground));">
+                    Historias reales de personas que eligieron priorizar la salud y la belleza
+                </p>
+            </div>
+
+            <div class="grid-3">
+                <div class="card">
+                    <div style="display: flex; margin-bottom: 16px;">
+                        <span style="color: hsl(var(--accent)); font-size: 1.25rem;">⭐⭐⭐⭐⭐</span>
+                    </div>
+
+                    <p class="italic mb-6" style="color: hsl(var(--muted-foreground)); line-height: 1.75;">
+                        "¡Las recetas son deliciosas y fáciles de hacer! Mi piel quedó radiante y finalmente logré adelgazar sin pasar hambre. ¡Se lo recomiendo a todas mis amigas!"
+                    </p>
+
+                    <div style="background: hsl(var(--primary) / 0.1); border: 1px solid hsl(var(--primary) / 0.2); border-radius: 8px; padding: 12px; margin-bottom: 16px;">
+                        <p class="text-primary font-semibold text-center" style="font-size: 14px;">
+                            ✨ Perdió 8kg en 2 meses
+                        </p>
+                    </div>
+
+                    <div class="text-center">
+                        <p class="font-semibold">María Silva</p>
+                        <p style="font-size: 14px; color: hsl(var(--muted-foreground));">32 años</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div style="display: flex; margin-bottom: 16px;">
+                        <span style="color: hsl(var(--accent)); font-size: 1.25rem;">⭐⭐⭐⭐⭐</span>
+                    </div>
+
+                    <p class="italic mb-6" style="color: hsl(var(--muted-foreground)); line-height: 1.75;">
+                        "¡Mis análisis mejoraron drásticamente! El colesterol que siempre estaba alto ahora está perfecto. ¡Las recetas funcionales realmente funcionan!"
+                    </p>
+
+                    <div style="background: hsl(var(--primary) / 0.1); border: 1px solid hsl(var(--primary) / 0.2); border-radius: 8px; padding: 12px; margin-bottom: 16px;">
+                        <p class="text-primary font-semibold text-center" style="font-size: 14px;">
+                            ✨ Colesterol normalizado
+                        </p>
+                    </div>
+
+                    <div class="text-center">
+                        <p class="font-semibold">Ana Paula</p>
+                        <p style="font-size: 14px; color: hsl(var(--muted-foreground));">45 años</p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div style="display: flex; margin-bottom: 16px;">
+                        <span style="color: hsl(var(--accent)); font-size: 1.25rem;">⭐⭐⭐⭐⭐</span>
+                    </div>
+
+                    <p class="italic mb-6" style="color: hsl(var(--muted-foreground)); line-height: 1.75;">
+                        "No imaginaba que la alimentación pudiera disminuir tanto mi ansiedad. Me siento más tranquila, duermo mejor y tengo mucha más energía!"
+                    </p>
+
+                    <div style="background: hsl(var(--primary) / 0.1); border: 1px solid hsl(var(--primary) / 0.2); border-radius: 8px; padding: 12px; margin-bottom: 16px;">
+                        <p class="text-primary font-semibold text-center" style="font-size: 14px;">
+                            ✨ Ansiedad controlada
+                        </p>
+                    </div>
+
+                    <div class="text-center">
+                        <p class="font-semibold">Carla Santos</p>
+                        <p style="font-size: 14px; color: hsl(var(--muted-foreground));">28 años</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <div style="display: inline-block; background: hsl(var(--accent) / 0.1); border: 1px solid hsl(var(--accent) / 0.2); border-radius: 12px; padding: 24px;">
+                    <p style="font-size: 1.125rem; font-weight: 500; color: hsl(var(--accent-foreground));">
+                        🎯 <strong>¡Tú puedes ser la próxima historia de éxito!</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee Section -->
+    <section class="section bg-gradient-hero">
+        <div class="container text-center" style="max-width: 800px;">
+            <div style="background: var(--card-gradient); padding: 48px; border-radius: 24px; box-shadow: var(--shadow-strong); border: 1px solid hsl(var(--primary) / 0.2);">
+                <div style="font-size: 4rem; margin-bottom: 24px;">🛡️</div>
+                
+                <h2 class="font-display font-bold mb-8" style="font-size: 2.5rem;">
+                    <span class="text-primary">Garantía Total</span> de 7 Días
+                </h2>
+                
+                <div class="space-y-4 mb-10" style="font-size: 1.25rem; color: hsl(var(--muted-foreground)); line-height: 1.75;">
+                    <p>
+                        Creemos tanto en el poder transformador de nuestras recetas que ofrecemos 
+                        una <strong style="color: hsl(var(--foreground));">garantía incondicional de 7 días</strong>.
+                    </p>
+                    
+                    <p>
+                        Lee el libro, prueba las recetas, siente los primeros resultados. 
+                        Si por cualquier motivo no estás completamente satisfecha, 
+                        <strong class="text-primary"> devolvemos el 100% de tu dinero</strong>.
+                    </p>
+                    
+                    <p class="text-primary font-semibold">
+                        Sin preguntas. Sin burocracia. Sin complicaciones.
+                    </p>
+                </div>
+
+                <div style="background: hsl(var(--accent) / 0.1); border: 1px solid hsl(var(--accent) / 0.3); border-radius: 12px; padding: 24px; margin-bottom: 40px;">
+                    <h3 class="font-display font-bold mb-4" style="font-size: 1.5rem; color: hsl(var(--accent-foreground));">
+                        ¿Por qué ofrecemos esta garantía?
+                    </h3>
+                    <p style="color: hsl(var(--accent-foreground) / 0.8);">
+                        Porque sabemos que nuestras recetas funcionan. Ya transformaron miles de vidas 
+                        y tenemos la certeza de que van a transformar la tuya también.
+                    </p>
+                </div>
+
+                <a href="#cta" class="btn btn-cta font-bold" style="font-size: 1.25rem;">
+                    SÍ, QUIERO CON GARANTÍA TOTAL
+                </a>
+                
+                <p style="font-size: 14px; color: hsl(var(--muted-foreground)); margin-top: 24px;">
+                    ✅ Acceso inmediato después del pago • ✅ Soporte completo • ✅ Riesgo cero
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="section bg-gradient-primary text-white">
+        <div class="container text-center" style="max-width: 800px;">
+            <h2 class="font-display font-bold mb-8 text-shadow" style="font-size: 3rem;">
+                Tu transformación comienza{" "}
+                <span class="text-accent-light">AHORA</span>
+            </h2>
+            
+            <p class="mb-12 leading-relaxed" style="font-size: 1.25rem; opacity: 0.9;">
+                No dejes para mañana el cambio que puede comenzar hoy. 
+                Miles de personas ya transformaron sus vidas con las Recetas Funcionales.
+            </p>
+
+            <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 16px; padding: 32px; margin-bottom: 40px; border: 1px solid rgba(255,255,255,0.2);">
+                <h3 class="font-display font-bold mb-6" style="font-size: 1.5rem;">
+                    🎁 Lo que recibes hoy:
+                </h3>
+                
+                <div class="grid-2" style="text-align: left;">
+                    <div class="space-y-4">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span style="width: 24px; height: 24px; background: hsl(var(--accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: hsl(var(--accent-foreground)); font-size: 12px; font-weight: bold;">✓</span>
+                            <span>+100 recetas funcionales exclusivas</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span style="width: 24px; height: 24px; background: hsl(var(--accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: hsl(var(--accent-foreground)); font-size: 12px; font-weight: bold;">✓</span>
+                            <span>Lista de sustituciones inteligentes</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span style="width: 24px; height: 24px; background: hsl(var(--accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: hsl(var(--accent-foreground)); font-size: 12px; font-weight: bold;">✓</span>
+                            <span>Guía práctica de organización</span>
+                        </div>
+                    </div>
+                    <div class="space-y-4">
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span style="width: 24px; height: 24px; background: hsl(var(--accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: hsl(var(--accent-foreground)); font-size: 12px; font-weight: bold;">✓</span>
+                            <span>Consejos de preparación y conservación</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span style="width: 24px; height: 24px; background: hsl(var(--accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: hsl(var(--accent-foreground)); font-size: 12px; font-weight: bold;">✓</span>
+                            <span>Acceso inmediato en PDF</span>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 12px;">
+                            <span style="width: 24px; height: 24px; background: hsl(var(--accent)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: hsl(var(--accent-foreground)); font-size: 12px; font-weight: bold;">✓</span>
+                            <span>Garantía de 7 días</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-8">
+                <div style="font-size: 2.5rem; font-weight: bold; margin-bottom: 8px;">
+                    <span class="text-accent-light line-through" style="font-size: 1.5rem;">$197</span>
+                </div>
+                <div style="font-size: 3rem; font-weight: bold; color: hsl(var(--accent-light)); margin-bottom: 16px;">
+                    $5,99
+                </div>
+                <p style="font-size: 14px; opacity: 0.75;">
+                    🔥 Oferta especial - válida solo hoy
+                </p>
+            </div>
+
+            <a href="#" class="btn btn-secondary font-bold mb-6" style="font-size: 1.25rem;">
+                SÍ, QUIERO MI TRANSFORMACIÓN AHORA
+            </a>
+            
+            <div style="font-size: 14px; opacity: 0.75;">
+                <p>⚡ Acceso inmediato después de la confirmación del pago</p>
+                <p>🔒 Compra 100% segura y protegida</p>
+                <p>📱 Compatible con todos los dispositivos</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: hsl(var(--muted) / 0.5); padding: 40px 0; text-align: center;">
+        <div class="container">
+            <p style="color: hsl(var(--muted-foreground)); font-size: 14px; margin-bottom: 16px;">
+                © 2024 Recetas Funcionales - Daniela. Todos los derechos reservados.
+            </p>
+            <p style="color: hsl(var(--muted-foreground)); font-size: 12px;">
+                Este producto no sustituye la opinión médica profesional. Siempre consulta a tu médico antes de hacer cambios significativos en tu dieta.
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

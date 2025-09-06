@@ -1,0 +1,803 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥 MEGA OFERTA: Recetas Funcionales Premium - Transformación Total en 30 Días</title>
+    <meta name="description" content="Mega pack premium de recetas funcionales con garantía de resultados. Transforma tu salud en 30 días con más de 200 recetas + bonos exclusivos.">
+    
+    <!-- Fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #FF6B35;
+            --primary-dark: #E85A2B;
+            --secondary: #2E8B57;
+            --accent: #FFD700;
+            --purple: #8B5CF6;
+            --pink: #EC4899;
+            --blue: #3B82F6;
+            --dark: #1A1A2E;
+            --light: #F8FAFC;
+            --success: #10B981;
+            --warning: #F59E0B;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .header-bar {
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 8px 0;
+            text-align: center;
+            font-weight: 600;
+            animation: pulse 2s infinite;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(139, 92, 246, 0.3)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300"><defs><linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23FF6B35;stop-opacity:0.3"/><stop offset="100%" style="stop-color:%238B5CF6;stop-opacity:0.3"/></linearGradient></defs><rect width="1000" height="300" fill="url(%23grad)"/></svg>');
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            z-index: 10;
+            position: relative;
+        }
+        
+        .mega-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: slideInUp 1s ease-out;
+        }
+        
+        .highlight-text {
+            background: linear-gradient(45deg, var(--accent), #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            opacity: 0.95;
+            animation: slideInUp 1s ease-out 0.2s both;
+        }
+        
+        .countdown-timer {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px 0;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .timer-display {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .timer-unit {
+            background: var(--primary);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            text-align: center;
+            min-width: 80px;
+        }
+        
+        .timer-number {
+            font-size: 2rem;
+            font-weight: 900;
+            display: block;
+        }
+        
+        .timer-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+        
+        .mega-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--primary), var(--accent));
+            color: white;
+            padding: 20px 50px;
+            font-size: 1.3rem;
+            font-weight: 800;
+            text-decoration: none;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+            animation: pulse 2s infinite;
+            margin: 20px 0;
+        }
+        
+        .mega-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.6);
+        }
+        
+        .offer-section {
+            background: white;
+            padding: 80px 0;
+            position: relative;
+        }
+        
+        .offer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .offer-card {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .offer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+        }
+        
+        .offer-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .testimonials-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 80px 0;
+            color: white;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .stars {
+            color: var(--accent);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .bonuses-section {
+            background: var(--dark);
+            color: white;
+            padding: 80px 0;
+        }
+        
+        .bonus-item {
+            display: flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--primary);
+        }
+        
+        .bonus-icon {
+            font-size: 3rem;
+            margin-right: 20px;
+            color: var(--accent);
+        }
+        
+        .pricing-section {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            padding: 80px 0;
+            color: white;
+            text-align: center;
+        }
+        
+        .price-comparison {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        
+        .old-price {
+            font-size: 2rem;
+            text-decoration: line-through;
+            opacity: 0.7;
+        }
+        
+        .new-price {
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--accent);
+        }
+        
+        .guarantee-badge {
+            background: var(--success);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            display: inline-block;
+            margin: 20px 0;
+            animation: bounce 2s infinite;
+        }
+        
+        .faq-section {
+            background: white;
+            padding: 80px 0;
+        }
+        
+        .faq-item {
+            background: #f8f9fa;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #e9ecef;
+        }
+        
+        .faq-question {
+            background: var(--primary);
+            color: white;
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            background: var(--primary-dark);
+        }
+        
+        .faq-answer {
+            padding: 20px;
+            display: none;
+        }
+        
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+        
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+        
+        .floating-icon {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        @media (max-width: 768px) {
+            .timer-display {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            
+            .timer-unit {
+                min-width: 60px;
+                padding: 10px 15px;
+            }
+            
+            .timer-number {
+                font-size: 1.5rem;
+            }
+            
+            .price-comparison {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .bonus-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .bonus-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra Superior -->
+    <div class="header-bar">
+        🔥 ¡OFERTA ESPECIAL! 70% DE DESCUENTO - SOLO POR TIEMPO LIMITADO 🔥
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="floating-elements">
+            <div class="floating-icon" style="top: 10%; left: 10%;">🥗</div>
+            <div class="floating-icon" style="top: 20%; right: 15%;">✨</div>
+            <div class="floating-icon" style="bottom: 30%; left: 20%;">🌱</div>
+            <div class="floating-icon" style="bottom: 20%; right: 10%;">💪</div>
+        </div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="mega-title">
+                    <span class="highlight-text">MEGA PACK PREMIUM</span><br>
+                     <span style="font-size: 0.7em; color: white;">Recetas Funcionales</span>
+
+                    
+                    <span style="font-size: 0.7em; color: white;">Transformación Total Garantizada</span> 
+</h1>
+
+                
+
+                <p class="subtitle">
+                    🚀 Más de 200 recetas + 8 bonos exclusivos + Plan de 30 días<br>
+                    ✅ Resultados visibles en 7 días o te devolvemos tu dinero
+                </p>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f7f7f7;
+    }h1 {
+      color: #333;
+    }
+
+    .imagem-container {
+      margin: 30px auto;
+      max-width: 800px;
+    }
+
+    .imagem-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+  </style>
+  <div class="imagem-container">
+    <img src="1755562358.png
+    " alt="Imagem de exemplo 1">
+                <div class="countdown-timer">
+                    <h3 style="margin-bottom: 10px; font-size: 1.5rem;">⏰ ¡Esta oferta termina en:</h3>
+                    <div class="timer-display">
+                        <div class="timer-unit">
+                            <span class="timer-number" id="days">02</span>
+                            <span class="timer-label">Días</span>
+                        </div>
+                        <div class="timer-unit">
+                            <span class="timer-number" id="hours">15</span>
+                            <span class="timer-label">Horas</span>
+                        </div>
+                        <div class="timer-unit">
+                            <span class="timer-number" id="minutes">43</span>
+                            <span class="timer-label">Minutos</span>
+                        </div>
+                        <div class="timer-unit">
+                            <span class="timer-number" id="seconds">28</span>
+                            <span class="timer-label">Segundos</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="#oferta" class="mega-button">
+                    🚀 ¡QUIERO MI TRANSFORMACIÓN AHORA!
+                </a>
+                
+                <div style="margin-top: 30px; font-size: 1.1rem;">
+                    ⭐⭐⭐⭐⭐ 4.9/5 estrellas | +12,000 transformaciones exitosas
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Lo que recibes -->
+    <section class="offer-section" id="oferta">
+        <div class="container">
+            <h2 class="section-title">🎁 Lo que recibes HOY (Valor: $497)</h2>
+            
+            <div class="offer-grid">
+                <div class="offer-card">
+                    <div class="offer-icon">📚</div>
+                    <h3>Libro Principal</h3>
+                    <p><strong>200+ Recetas Funcionales Premium</strong><br>
+                    Sin gluten, sin azúcar refinado, low carb, detox y antiage</p>
+                    <div style="margin-top: 15px; font-size: 1.2rem; font-weight: bold;">Valor: $5,99</div>
+                </div>
+                
+                <div class="offer-card">
+                    <div class="offer-icon">📋</div>
+                    <h3>Plan de 30 Días</h3>
+                    <p><strong>Guía paso a paso completa</strong><br>
+                    Menús diarios, listas de compras y cronograma detallado</p>
+                    <div style="margin-top: 15px; font-size: 1.2rem; font-weight: bold;">Valor: $67</div>
+                </div>
+                
+                <div class="offer-card">
+                    <div class="offer-icon">🍹</div>
+                    <h3>BONO 1: Smoothies Detox</h3>
+                    <p><strong>30 Batidos Desintoxicantes</strong><br>
+                    Para acelerar la pérdida de peso y limpiar tu organismo</p>
+                    <div style="margin-top: 15px; font-size: 1.2rem; font-weight: bold;">Valor: $47</div>
+                </div>
+                
+                <div class="offer-card">
+                    <div class="offer-icon">🥘</div>
+                    <h3>BONO 2: Recetas Express</h3>
+                    <p><strong>50 Recetas en 15 minutos</strong><br>
+                    Para cuando no tienes tiempo pero quieres comer sano</p>
+                    <div style="margin-top: 15px; font-size: 1.2rem; font-weight: bold;">Valor: $37</div>
+                </div>
+                
+                <div class="offer-card">
+                    <div class="offer-icon">💊</div>
+                    <h3>BONO 3: Guía Suplementos</h3>
+                    <p><strong>Suplementos Naturales</strong><br>
+                    Cuáles tomar, cuándo y cómo para potenciar resultados</p>
+                    <div style="margin-top: 15px; font-size: 1.2rem; font-weight: bold;">Valor: $47</div>
+                </div>
+                
+                <div class="offer-card">
+                    <div class="offer-icon">🧘‍♀️</div>
+                    <h3>BONO 4: Mindset Saludable</h3>
+                    <p><strong>Técnicas de Mindfulness</strong><br>
+                    Para mantener la motivación y crear hábitos duraderos</p>
+                    <div style="margin-top: 15px; font-size: 1.2rem; font-weight: bold;">Valor: $57</div>
+                </div>
+                
+                <div class="offer-card">
+                    <div class="offer-icon">📱</div>
+                    <h3>BONO 5: App Móvil</h3>
+                    <p><strong>Acceso a la App Premium</strong><br>
+                    Todas las recetas en tu móvil + calculadora nutricional</p>
+                    <div style="margin-top: 15px; font-size: 1.2rem; font-weight: bold;">Valor: $67</div>
+                </div>
+                
+                <div class="offer-card">
+                    <div class="offer-icon">👥</div>
+                    <h3>BONO 6: Comunidad VIP</h3>
+                    <p><strong>Grupo Exclusivo de Facebook</strong><br>
+                    Apoyo 24/7 y recetas exclusivas cada semana</p>
+                    <div style="margin-top: 15px; font-size: 1.2rem; font-weight: bold;">Valor: $97</div>
+                </div>
+                
+                <div class="offer-card">
+                    <div class="offer-icon">🎯</div>
+                    <h3>BONO 7: Coaching Personal</h3>
+                    <p><strong>3 Sesiones de Coaching</strong><br>
+                    Personalización de tu plan según tus objetivos específicos</p>
+                    <div style="margin-top: 15px; font-size: 1.2rem; font-weight: bold;">Valor: $197</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">🌟 Transformaciones Reales</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"¡Perdí 8 kilos en 30 días! Pero lo mejor es que mi piel se ve radiante y tengo energía todo el día. Estas recetas cambiaron mi vida completamente."</p>
+                    <div style="margin-top: 15px; font-weight: bold;">- Carmen López, 34 años</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Mi diabetes tipo 2 mejoró significativamente. Los niveles de azúcar se estabilizaron y dejé de tomar 2 medicamentos. Mi médico está asombrado."</p>
+                    <div style="margin-top: 15px; font-weight: bold;">- Roberto Fernández, 45 años</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Las recetas son deliciosas y súper fáciles. Mi familia entera adoptó este estilo de vida. Mis hijos ya no se enferman tanto y tenemos más energía."</p>
+                    <div style="margin-top: 15px; font-weight: bold;">- Isabel Moreno, 38 años</div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Sufrí de ansiedad durante años. Con estas recetas y el plan de mindfulness, logré equilibrar mis emociones naturalmente. ¡Increíble!"</p>
+                    <div style="margin-top: 15px; font-weight: bold;">- Andrea Silva, 29 años</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Precio -->
+    <section class="pricing-section">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">💎 Oferta Especial de Lanzamiento</h2>
+            
+            <div style="background: rgba(255,255,255,0.1); padding: 40px; border-radius: 20px; margin: 40px 0;">
+                <h3 style="font-size: 2rem; margin-bottom: 20px;">Si compraras todo por separado pagarías:</h3>
+                
+                <div style="font-size: 1.3rem; margin-bottom: 30px; line-height: 1.8;">
+                    📚 Libro Principal: $97<br>
+                    📋 Plan de 30 Días: $67<br>
+                    🎁 6 Bonos Premium: $349<br>
+                    👥 Comunidad VIP: $97<br>
+                    🎯 Coaching Personal: $197<br>
+                    <hr style="margin: 20px 0; border-color: rgba(255,255,255,0.3);">
+                    <strong style="font-size: 1.5rem;">TOTAL: $807</strong>
+                </div>
+            </div>
+            
+            <div class="price-comparison">
+                <div>
+                    <div class="old-price">$807</div>
+                    <div style="font-size: 1.2rem;">Precio normal</div>
+                </div>
+                <div style="font-size: 3rem; color: var(--accent);">➡️</div>
+                <div>
+                    <div class="new-price">$5,99</div>
+                    <div style="font-size: 1.2rem;">¡Solo HOY!</div>
+                </div>
+            </div>
+            
+            <div class="guarantee-badge">
+                🛡️ GARANTÍA DE 30 DÍAS O TE DEVOLVEMOS TU DINERO
+            </div>
+            
+            <a href="#comprar" class="mega-button" style="font-size: 1.5rem; padding: 25px 60px;">
+                💳 ¡OBTENER MI MEGA PACK AHORA POR $5,99!
+            </a>
+            
+            <div style="margin-top: 30px; font-size: 1.1rem;">
+                ✅ Acceso inmediato • ✅ Todos los bonos incluidos • ✅ Garantía total
+            </div>
+
+             <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #f7f7f7;
+    }h1 {
+      color: #333;
+    }
+
+    .imagem-container {
+      margin: 30px auto;
+      max-width: 800px;
+    }
+
+    .imagem-container img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+  </style>
+  <div class="imagem-container">
+    <img src="1755562358.png
+    " alt="Imagem de exemplo 1">
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">❓ Preguntas Frecuentes</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    ¿Cuánto tiempo tengo acceso al contenido?
+                </div>
+                <div class="faq-answer">
+                    Tienes acceso de por vida a todo el contenido. Una vez que compras, es tuyo para siempre, incluyendo todas las actualizaciones futuras.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    ¿Las recetas son realmente fáciles de hacer?
+                </div>
+                <div class="faq-answer">
+                    ¡Absolutamente! Todas las recetas están diseñadas para ser simples, con ingredientes fáciles de encontrar y pasos claros. Incluimos recetas que se hacen en 15 minutos o menos.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    ¿Qué pasa si no veo resultados?
+                </div>
+                <div class="faq-answer">
+                    Ofrecemos una garantía total de 30 días. Si sigues el plan y no ves resultados, te devolvemos el 100% de tu dinero sin preguntas.
+                </div>
+            </div>
+            
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    ¿Sirve para personas con diabetes o hipertensión?
+                </div>
+                <div class="faq-answer">
+                    Sí, nuestras recetas están especialmente diseñadas para ayudar a controlar azúcar en sangre y presión arterial. Sin embargo, siempre consulta con tu médico antes de hacer cambios en tu alimentación.
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    ¿Cómo accedo al contenido después de comprar?
+                </div>
+                <div class="faq-answer">
+                    Recibirás un email inmediatamente después de la compra con todos los enlaces de descarga y acceso a la comunidad VIP. Es instantáneo.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div style="margin-bottom: 30px;">
+                <a href="#comprar" class="mega-button">
+                    🚀 ¡SÍ! QUIERO MI TRANSFORMACIÓN TOTAL
+                </a>
+            </div>
+            
+            <p>&copy; 2024 Recetas Funcionales Premium. Todos los derechos reservados.</p>
+            <p style="margin-top: 10px; opacity: 0.8;">
+                Términos y Condiciones | Política de Privacidad | Soporte: soporte@recetasfuncionales.com
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        function updateTimer() {
+            const now = new Date().getTime();
+            const endTime = now + (2 * 24 * 60 * 60 * 1000) + (15 * 60 * 60 * 1000) + (43 * 60 * 1000) + (28 * 1000);
+            
+            setInterval(function() {
+                const currentTime = new Date().getTime();
+                const timeLeft = endTime - currentTime;
+                
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                
+                document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+                document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+                document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+                document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
+                
+                if (timeLeft < 0) {
+                    document.querySelector('.countdown-timer').innerHTML = "<h3>¡Oferta Expirada!</h3>";
+                }
+            }, 1000);
+        }
+        
+        // FAQ Toggle
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const isOpen = answer.style.display === 'block';
+            
+            // Close all FAQs
+            document.querySelectorAll('.faq-answer').forEach(faq => {
+                faq.style.display = 'none';
+            });
+            
+            // Open clicked FAQ if it wasn't open
+            if (!isOpen) {
+                answer.style.display = 'block';
+            }
+        }
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Initialize timer
+        updateTimer();
+        
+        // Add floating animation to floating icons
+        document.querySelectorAll('.floating-icon').forEach((icon, index) => {
+            icon.style.animationDelay = `${index * 0.5}s`;
+        });
+    </script>
+</body>
+</html>

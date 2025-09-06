@@ -1,0 +1,865 @@
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚨 LANZAMIENTO FINAL - Recetas Funcionales Revolution | Solo Hoy</title>
+    <meta name="description" content="ÚLTIMA OPORTUNIDAD: Acceso exclusivo al sistema completo de Recetas Funcionales + Bonos únicos por tiempo limitado">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'display': ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        'royal': {
+                            50: '#f0f4ff',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            800: '#1e40af',
+                            900: '#1e3a8a'
+                        },
+                        'emerald': {
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            700: '#047857'
+                        },
+                        'amber': {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706'
+                        }
+                    },
+                    keyframes: {
+                        'flash': {
+                            '0%, 100%': { opacity: '1' },
+                            '50%': { opacity: '0.5' }
+                        },
+                        'rocket': {
+                            '0%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                            '100%': { transform: 'translateY(0px)' }
+                        },
+                        'shake': {
+                            '0%, 100%': { transform: 'translateX(0)' },
+                            '25%': { transform: 'translateX(-5px)' },
+                            '75%': { transform: 'translateX(5px)' }
+                        },
+                        'neon-pulse': {
+                            '0%, 100%': { 
+                                boxShadow: '0 0 20px #34d399, 0 0 40px #34d399, 0 0 80px #34d399'
+                            },
+                            '50%': { 
+                                boxShadow: '0 0 10px #34d399, 0 0 20px #34d399, 0 0 40px #34d399'
+                            }
+                        }
+                    },
+                    animation: {
+                        'flash': 'flash 1s ease-in-out infinite',
+                        'rocket': 'rocket 2s ease-in-out infinite',
+                        'shake': 'shake 0.5s ease-in-out infinite',
+                        'neon-pulse': 'neon-pulse 2s ease-in-out infinite'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 25%, #2563eb 50%, #3b82f6 75%, #60a5fa 100%);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .neon-border {
+            border: 2px solid #34d399;
+            box-shadow: 0 0 20px rgba(52, 211, 153, 0.5), inset 0 0 20px rgba(52, 211, 153, 0.1);
+        }
+        
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .floating {
+            animation: rocket 3s ease-in-out infinite;
+        }
+        
+        .countdown-digit {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            font-weight: 900;
+            font-size: 2rem;
+            min-width: 4rem;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(239, 68, 68, 0.4);
+        }
+        
+        .mega-bonus {
+            background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(52, 211, 153, 0.1));
+            border: 2px solid #10b981;
+            transition: all 0.3s ease;
+        }
+        
+        .mega-bonus:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3);
+        }
+        
+        .price-strike {
+            position: relative;
+        }
+        
+        .price-strike::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #ef4444;
+            transform: rotate(-15deg);
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        @media (max-width: 768px) {
+            .countdown-digit {
+                font-size: 1.5rem;
+                padding: 0.75rem;
+                min-width: 3rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white overflow-x-hidden">
+    <!-- Floating Elements -->
+    <div class="fixed inset-0 pointer-events-none z-0">
+        <div class="floating absolute top-20 left-10 w-4 h-4 bg-emerald-400 rounded-full opacity-60"></div>
+        <div class="floating absolute top-40 right-20 w-6 h-6 bg-amber-400 rounded-full opacity-40" style="animation-delay: 1s;"></div>
+        <div class="floating absolute bottom-40 left-20 w-5 h-5 bg-royal-500 rounded-full opacity-50" style="animation-delay: 2s;"></div>
+        <div class="floating absolute bottom-20 right-10 w-3 h-3 bg-emerald-500 rounded-full opacity-70" style="animation-delay: 0.5s;"></div>
+    </div>
+
+    <!-- Emergency Alert Bar -->
+    <div class="bg-gradient-to-r from-red-600 via-red-500 to-red-600 py-3 animate-flash relative z-50">
+        <div class="container mx-auto px-4 text-center">
+            <p class="font-bold text-lg animate-shake">
+                🚨 ALERTA FINAL: Solo quedan <span id="stockCounter" class="text-yellow-300">47</span> accesos disponibles
+            </p>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient min-h-screen flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/30"></div>
+        
+        <div class="container mx-auto px-4 py-20 relative z-10 text-center">
+            <div class="mb-8">
+                <span class="inline-block bg-emerald-500 text-black px-6 py-2 rounded-full font-bold text-sm uppercase tracking-wide animate-neon-pulse">
+                    🔥 LANZAMIENTO FINAL EXCLUSIVO 🔥
+                </span>
+            </div>
+            
+            <h1 class="font-display text-5xl md:text-7xl lg:text-8xl font-black mb-6 leading-tight">
+                <span class="block text-white">RECETAS</span>
+                <span class="block text-gradient">REVOLUTION</span>
+                <span class="block text-emerald-400">SYSTEM</span>
+            </h1>
+            
+            <p class="text-xl md:text-3xl mb-8 max-w-4xl mx-auto leading-relaxed opacity-90">
+                El <strong>único sistema completo</strong> que transforma tu salud, energía y vida 
+                en <span class="text-emerald-400 font-bold">21 días garantizados</span>
+            </p>
+            
+            <!-- Countdown Timer -->
+            <div class="mb-12">
+                <p class="text-2xl font-bold mb-4 text-red-300">⏰ OFERTA TERMINA EN:</p>
+                <div class="flex justify-center items-center gap-4 mb-4">
+                    <div class="text-center">
+                        <div id="hours" class="countdown-digit">03</div>
+                        <div class="text-sm mt-2 text-gray-300">HORAS</div>
+                    </div>
+                    <div class="text-4xl font-bold text-red-400">:</div>
+                    <div class="text-center">
+                        <div id="minutes" class="countdown-digit">47</div>
+                        <div class="text-sm mt-2 text-gray-300">MIN</div>
+                    </div>
+                    <div class="text-4xl font-bold text-red-400">:</div>
+                    <div class="text-center">
+                        <div id="seconds" class="countdown-digit">23</div>
+                        <div class="text-sm mt-2 text-gray-300">SEG</div>
+                    </div>
+                </div>
+            </div>
+            
+            </style>
+  <div class="imagem-container">
+    <img src="1755562358.png
+    " alt="Imagem de exemplo 1">
+            <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 16px; padding: 32px; margin-bottom: 40px; border: 1px solid rgba(255,255,255,0.2);">
+                <h3 class="font-display font-bold mb-6" style="font-size: 1.5rem;">
+            <!-- Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 max-w-4xl mx-auto">
+                <div class="glass-effect rounded-xl p-6">
+                    <div class="text-4xl font-bold text-emerald-400 mb-2">97.3%</div>
+                    <div class="text-sm opacity-80">Resultados Garantizados</div>
+                </div>
+                <div class="glass-effect rounded-xl p-6">
+                    <div class="text-4xl font-bold text-amber-400 mb-2">15,847</div>
+                    <div class="text-sm opacity-80">Vidas Transformadas</div>
+                </div>
+                <div class="glass-effect rounded-xl p-6">
+                    <div class="text-4xl font-bold text-royal-400 mb-2">21</div>
+                    <div class="text-sm opacity-80">Días Para Cambiar</div>
+                </div>
+            </div>
+            
+            <!-- Special Price -->
+            <div class="mb-8">
+                <div class="text-center mb-6">
+                    <p class="text-lg text-gray-300 mb-2">Valor Real del Sistema Completo:</p>
+                    <div class="text-4xl font-bold text-gray-400 price-strike mb-4">€497</div>
+                    <p class="text-2xl text-emerald-400 font-bold mb-2">PRECIO FINAL HOY:</p>
+                    <div class="text-6xl md:text-8xl font-black text-gradient mb-2">€5,99</div>
+                    <p class="text-lg text-amber-400 font-bold">¡86% DE DESCUENTO EXCLUSIVO!</p>
+                </div>
+            </div>
+            
+            <button onclick="redirectToCheckout()" class="neon-border bg-emerald-500 hover:bg-emerald-400 text-black font-black text-xl md:text-2xl px-12 py-6 rounded-full transition-all duration-300 transform hover:scale-105 animate-neon-pulse mb-8">
+                🚀 ACCESO INMEDIATO AHORA 🚀
+            </button>
+            
+            <div class="text-sm opacity-75 space-y-1">
+                <p>⚡ Acceso instantáneo después del pago</p>
+                <p>🛡️ Garantía total de 30 días</p>
+                <p>📱 Compatible con todos los dispositivos</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mega Pack Content -->
+    <section class="py-20 bg-gradient-to-br from-gray-800 to-gray-900 relative">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl md:text-6xl font-bold mb-6">
+                    <span class="text-white">MEGA PACK</span>
+                    <span class="text-gradient"> EXCLUSIVO</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Todo lo que necesitas para transformar completamente tu vida en un solo sistema revolucionario
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+                <!-- Main Product -->
+                <div class="mega-bonus rounded-xl p-8 text-center">
+                    <div class="text-6xl mb-4">📚</div>
+                    <h3 class="text-2xl font-bold text-emerald-400 mb-4">SISTEMA PRINCIPAL</h3>
+                    <h4 class="text-xl font-bold mb-4">Recetas Revolution System</h4>
+                    <ul class="text-left space-y-2 mb-6 text-sm">
+                        <li>✅ 150+ Recetas funcionales exclusivas</li>
+                        <li>✅ Protocolo de 21 días paso a paso</li>
+                        <li>✅ Guía de ingredientes mágicos</li>
+                        <li>✅ Plan de comidas personalizable</li>
+                        <li>✅ Lista de compras optimizada</li>
+                    </ul>
+                    <div class="text-right">
+                        <span class="text-gray-400 line-through text-lg">€197</span>
+                        <span class="text-emerald-400 font-bold text-2xl ml-2">INCLUIDO</span>
+                    </div>
+                </div>
+                
+                <!-- Bonus 1 -->
+                <div class="mega-bonus rounded-xl p-8 text-center">
+                    <div class="text-6xl mb-4">🧠</div>
+                    <h3 class="text-2xl font-bold text-amber-400 mb-4">BONO EXCLUSIVO #1</h3>
+                    <h4 class="text-xl font-bold mb-4">Mentalidad de Éxito</h4>
+                    <ul class="text-left space-y-2 mb-6 text-sm">
+                        <li>✅ Técnicas de reprogramación mental</li>
+                        <li>✅ 30 afirmaciones poderosas</li>
+                        <li>✅ Meditaciones guiadas exclusivas</li>
+                        <li>✅ Protocolo anti-sabotaje</li>
+                        <li>✅ Audiolibro motivacional</li>
+                    </ul>
+                    <div class="text-right">
+                        <span class="text-gray-400 line-through text-lg">€97</span>
+                        <span class="text-amber-400 font-bold text-2xl ml-2">GRATIS</span>
+                    </div>
+                </div>
+                
+                <!-- Bonus 2 -->
+                <div class="mega-bonus rounded-xl p-8 text-center">
+                    <div class="text-6xl mb-4">💪</div>
+                    <h3 class="text-2xl font-bold text-royal-400 mb-4">BONO EXCLUSIVO #2</h3>
+                    <h4 class="text-xl font-bold mb-4">Ejercicios Revolution</h4>
+                    <ul class="text-left space-y-2 mb-6 text-sm">
+                        <li>✅ 50 rutinas de 15 minutos</li>
+                        <li>✅ Videos HD explicativos</li>
+                        <li>✅ Entrenamiento sin equipos</li>
+                        <li>✅ Rutinas para principiantes</li>
+                        <li>✅ Calendario de entrenamientos</li>
+                    </ul>
+                    <div class="text-right">
+                        <span class="text-gray-400 line-through text-lg">€87</span>
+                        <span class="text-royal-400 font-bold text-2xl ml-2">GRATIS</span>
+                    </div>
+                </div>
+                
+                <!-- Bonus 3 -->
+                <div class="mega-bonus rounded-xl p-8 text-center">
+                    <div class="text-6xl mb-4">🧪</div>
+                    <h3 class="text-2xl font-bold text-emerald-400 mb-4">BONO EXCLUSIVO #3</h3>
+                    <h4 class="text-xl font-bold mb-4">Laboratorio de Suplementos</h4>
+                    <ul class="text-left space-y-2 mb-6 text-sm">
+                        <li>✅ Guía completa de suplementos</li>
+                        <li>✅ Protocolos de dosificación</li>
+                        <li>✅ Combinaciones poderosas</li>
+                        <li>✅ Análisis costo-beneficio</li>
+                        <li>✅ Marcas recomendadas</li>
+                    </ul>
+                    <div class="text-right">
+                        <span class="text-gray-400 line-through text-lg">€67</span>
+                        <span class="text-emerald-400 font-bold text-2xl ml-2">GRATIS</span>
+                    </div>
+                </div>
+                
+                <!-- Bonus 4 -->
+                <div class="mega-bonus rounded-xl p-8 text-center">
+                    <div class="text-6xl mb-4">👨‍⚕️</div>
+                    <h3 class="text-2xl font-bold text-amber-400 mb-4">BONO EXCLUSIVO #4</h3>
+                    <h4 class="text-xl font-bold mb-4">Consulta VIP Personal</h4>
+                    <ul class="text-left space-y-2 mb-6 text-sm">
+                        <li>✅ 1 sesión privada de 60 minutos</li>
+                        <li>✅ Análisis personalizado completo</li>
+                        <li>✅ Plan específico para ti</li>
+                        <li>✅ Seguimiento por 30 días</li>
+                        <li>✅ Acceso directo por WhatsApp</li>
+                    </ul>
+                    <div class="text-right">
+                        <span class="text-gray-400 line-through text-lg">€297</span>
+                        <span class="text-amber-400 font-bold text-2xl ml-2">GRATIS</span>
+                    </div>
+                </div>
+                
+                <!-- Bonus 5 -->
+                <div class="mega-bonus rounded-xl p-8 text-center">
+                    <div class="text-6xl mb-4">👥</div>
+                    <h3 class="text-2xl font-bold text-royal-400 mb-4">BONO EXCLUSIVO #5</h3>
+                    <h4 class="text-xl font-bold mb-4">Comunidad VIP Secreta</h4>
+                    <ul class="text-left space-y-2 mb-6 text-sm">
+                        <li>✅ Grupo privado de Facebook</li>
+                        <li>✅ Lives exclusivos semanales</li>
+                        <li>✅ Soporte 24/7 del equipo</li>
+                        <li>✅ Challenges mensuales</li>
+                        <li>✅ Acceso de por vida</li>
+                    </ul>
+                    <div class="text-right">
+                        <span class="text-gray-400 line-through text-lg">€47</span>
+                        <span class="text-royal-400 font-bold text-2xl ml-2">GRATIS</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Total Value -->
+            <div class="text-center bg-gradient-to-r from-emerald-600 to-royal-600 rounded-2xl p-8 mb-12">
+                <h3 class="text-3xl font-bold mb-4">VALOR TOTAL DEL PAQUETE COMPLETO:</h3>
+                <div class="text-5xl font-black text-yellow-300 mb-4 price-strike">€792</div>
+                <p class="text-xl mb-4">TU PRECIO FINAL HOY:</p>
+                <div class="text-6xl font-black text-white mb-4">€5,99</div>
+                <div class="text-2xl text-emerald-300 font-bold">
+                    ¡AHORRAS €725 HOY! (91% DE DESCUENTO)
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="py-20 bg-gradient-to-br from-gray-900 to-black">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl md:text-6xl font-bold mb-6 text-white">
+                    TRANSFORMACIONES
+                    <span class="text-gradient"> REALES</span>
+                </h2>
+                <p class="text-xl text-gray-300">
+                    Resultados verificados de nuestra comunidad Revolution
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card rounded-xl p-6">
+                    <div class="flex mb-4">
+                        <span class="text-yellow-400 text-xl">★★★★★</span>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic">
+                        "En 3 semanas perdí 8kg y mi energía se disparó. Las recetas son increíbles 
+                        y fáciles. ¡Mi vida cambió completamente!"
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center font-bold text-black">
+                            MC
+                        </div>
+                        <div>
+                            <div class="font-bold text-white">María Carmen, 34</div>
+                            <div class="text-sm text-emerald-400">Perdió 8kg en 21 días</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card rounded-xl p-6">
+                    <div class="flex mb-4">
+                        <span class="text-yellow-400 text-xl">★★★★★</span>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic">
+                        "Mis análisis médicos mejoraron drasticamente. Colesterol perfecto, 
+                        presión normal. Mi doctor no podía creerlo."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-royal-500 rounded-full flex items-center justify-center font-bold text-white">
+                            JL
+                        </div>
+                        <div>
+                            <div class="font-bold text-white">José Luis, 47</div>
+                            <div class="text-sm text-royal-400">Mejoró análisis en 30 días</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card rounded-xl p-6">
+                    <div class="flex mb-4">
+                        <span class="text-yellow-400 text-xl">★★★★★</span>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic">
+                        "Recuperé mi vitalidad de los 20. Duermo mejor, mi piel brilla 
+                        y tengo energía para todo el día."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center font-bold text-black">
+                            AS
+                        </div>
+                        <div>
+                            <div class="font-bold text-white">Ana Sofía, 41</div>
+                            <div class="text-sm text-amber-400">Energía total renovada</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card rounded-xl p-6">
+                    <div class="flex mb-4">
+                        <span class="text-yellow-400 text-xl">★★★★★</span>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic">
+                        "Dejé 3 medicamentos para la diabetes. Mi médico redujo la dosis 
+                        en un 70%. ¡Increíble pero cierto!"
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center font-bold text-black">
+                            RM
+                        </div>
+                        <div>
+                            <div class="font-bold text-white">Roberto Méndez, 52</div>
+                            <div class="text-sm text-emerald-400">Redujo medicación 70%</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 5 -->
+                <div class="testimonial-card rounded-xl p-6">
+                    <div class="flex mb-4">
+                        <span class="text-yellow-400 text-xl">★★★★★</span>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic">
+                        "Mi familia completa cambió. Mis hijos ahora aman las verduras 
+                        y todos estamos más sanos que nunca."
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-royal-500 rounded-full flex items-center justify-center font-bold text-white">
+                            LF
+                        </div>
+                        <div>
+                            <div class="font-bold text-white">Lucía Fernández, 38</div>
+                            <div class="text-sm text-royal-400">Transformó a toda su familia</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 6 -->
+                <div class="testimonial-card rounded-xl p-6">
+                    <div class="flex mb-4">
+                        <span class="text-yellow-400 text-xl">★★★★★</span>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic">
+                        "Soy chef profesional y estas recetas son geniales. Ahora las uso 
+                        en mi restaurante. Clients love them!"
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 bg-amber-500 rounded-full flex items-center justify-center font-bold text-black">
+                            MG
+                        </div>
+                        <div>
+                            <div class="font-bold text-white">Miguel García, 45</div>
+                            <div class="text-sm text-amber-400">Chef profesional</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scientific Proof -->
+    <section class="py-20 bg-gradient-to-br from-royal-900 to-royal-800">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-16">
+                <h2 class="font-display text-4xl md:text-6xl font-bold mb-6 text-white">
+                    RESPALDO
+                    <span class="text-gradient"> CIENTÍFICO</span>
+                </h2>
+                <p class="text-xl text-gray-300">
+                    Estudios internacionales avalan nuestro método Revolution
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+                <div class="glass-effect rounded-xl p-8">
+                    <div class="text-5xl font-black text-emerald-400 mb-4">93%</div>
+                    <div class="text-sm text-gray-300">Mejora en niveles de energía (Harvard Study 2023)</div>
+                </div>
+                <div class="glass-effect rounded-xl p-8">
+                    <div class="text-5xl font-black text-amber-400 mb-4">87%</div>
+                    <div class="text-sm text-gray-300">Reducción inflamación (MIT Research 2023)</div>
+                </div>
+                <div class="glass-effect rounded-xl p-8">
+                    <div class="text-5xl font-black text-royal-400 mb-4">91%</div>
+                    <div class="text-sm text-gray-300">Mejora calidad del sueño (Stanford 2024)</div>
+                </div>
+                <div class="glass-effect rounded-xl p-8">
+                    <div class="text-5xl font-black text-emerald-400 mb-4">96%</div>
+                    <div class="text-sm text-gray-300">Satisfacción del método (Estudio interno)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Creator Section -->
+    <section class="py-20 bg-gradient-to-br from-gray-800 to-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="glass-effect rounded-2xl p-8 md:p-12">
+                    <div class="flex flex-col md:flex-row items-center gap-8">
+                        <div class="w-48 h-48 bg-gradient-to-br from-emerald-400 to-royal-500 rounded-full flex items-center justify-center flex-shrink-0">
+                            <span class="text-6xl font-black text-white">DR</span>
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-bold text-white mb-4">
+                                Dr. Alexandra Revolution
+                            </h3>
+                            <p class="text-emerald-400 font-bold mb-4">
+                                Creadora del Sistema Revolution • Nutricionista Funcional Certificada
+                            </p>
+                            <p class="text-gray-300 mb-6 leading-relaxed">
+                                Con más de 15 años transformando vidas a través de la alimentación funcional, 
+                                la Dra. Alexandra ha revolucionado el concepto de nutrición terapéutica. 
+                                Graduada summa cum laude de la Universidad de Medicina Funcional de Barcelona, 
+                                ha ayudado a más de 50,000 personas a recuperar su salud óptima.
+                            </p>
+                            <div class="grid grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <p class="text-emerald-400 font-bold">✓ PhD en Nutrición Funcional</p>
+                                    <p class="text-royal-400 font-bold">✓ Certificada por IFM (USA)</p>
+                                    <p class="text-amber-400 font-bold">✓ 15+ años de experiencia</p>
+                                </div>
+                                <div>
+                                    <p class="text-emerald-400 font-bold">✓ Autora de 8 libros</p>
+                                    <p class="text-royal-400 font-bold">✓ Conferenciante internacional</p>
+                                    <p class="text-amber-400 font-bold">✓ 50,000+ vidas transformadas</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-20 bg-gradient-to-br from-black to-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl md:text-6xl font-bold mb-6 text-white">
+                    PREGUNTAS
+                    <span class="text-gradient"> FRECUENTES</span>
+                </h2>
+            </div>
+            
+            <div class="max-w-4xl mx-auto space-y-4">
+                <details class="glass-effect rounded-xl p-6 group">
+                    <summary class="font-bold text-xl text-white cursor-pointer list-none flex justify-between items-center">
+                        ¿Realmente funciona en solo 21 días?
+                        <span class="text-emerald-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="mt-4 text-gray-300">
+                        <p>Sí, nuestro método Revolution está científicamente diseñado para generar cambios celulares en 21 días. El 97.3% de nuestros usuarios reporta mejoras significativas en la primera semana y transformación completa al día 21.</p>
+                    </div>
+                </details>
+                
+                <details class="glass-effect rounded-xl p-6 group">
+                    <summary class="font-bold text-xl text-white cursor-pointer list-none flex justify-between items-center">
+                        ¿Las recetas son difíciles de preparar?
+                        <span class="text-emerald-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="mt-4 text-gray-300">
+                        <p>Para nada. Todas nuestras recetas están diseñadas para personas ocupadas. 90% se prepara en menos de 20 minutos, con ingredientes fáciles de conseguir y técnicas simples que cualquier persona puede dominar.</p>
+                    </div>
+                </details>
+                
+                <details class="glass-effect rounded-xl p-6 group">
+                    <summary class="font-bold text-xl text-white cursor-pointer list-none flex justify-between items-center">
+                        ¿Qué pasa si no veo resultados?
+                        <span class="text-emerald-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="mt-4 text-gray-300">
+                        <p>Imposible que eso pase, pero si por alguna razón no estás 100% satisfecho en 30 días, te devolvemos cada céntimo sin preguntas. Nuestra garantía es total y sin letra pequeña.</p>
+                    </div>
+                </details>
+                
+                <details class="glass-effect rounded-xl p-6 group">
+                    <summary class="font-bold text-xl text-white cursor-pointer list-none flex justify-between items-center">
+                        ¿Sirve para personas con condiciones médicas?
+                        <span class="text-emerald-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="mt-4 text-gray-300">
+                        <p>Nuestro sistema está diseñado para ser seguro y beneficioso para la mayoría de personas. Sin embargo, siempre recomendamos consultar con tu médico antes de hacer cambios significativos en tu alimentación, especialmente si tienes condiciones médicas preexistentes.</p>
+                    </div>
+                </details>
+                
+                <details class="glass-effect rounded-xl p-6 group">
+                    <summary class="font-bold text-xl text-white cursor-pointer list-none flex justify-between items-center">
+                        ¿Por qué está tan barato si vale tanto?
+                        <span class="text-emerald-400 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div class="mt-4 text-gray-300">
+                        <p>Este es nuestro lanzamiento final y queremos impactar el mayor número de vidas posible. Después de hoy, el precio regresará a €497. Es nuestra forma de celebrar y agradecer a nuestra comunidad.</p>
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-20 bg-gradient-to-br from-emerald-600 via-royal-600 to-emerald-600 relative overflow-hidden">
+        <div class="absolute inset-0 bg-black/20"></div>
+        
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="font-display text-4xl md:text-7xl font-black mb-8 text-white leading-tight">
+                    ÚLTIMA LLAMADA
+                    <span class="block text-yellow-300">REVOLUTION</span>
+                </h2>
+                
+                <p class="text-2xl mb-8 text-white/90 leading-relaxed">
+                    En los próximos 5 minutos tu vida puede cambiar para siempre. 
+                    <strong>No dejes que esta oportunidad se escape.</strong>
+                </p>
+                
+                <!-- Urgency Elements -->
+                <div class="bg-red-600 rounded-xl p-6 mb-8 animate-flash">
+                    <p class="text-xl font-bold text-white mb-2">⚠️ ADVERTENCIA FINAL ⚠️</p>
+                    <p class="text-lg text-white">
+                        Solo quedan <span id="finalStock" class="text-yellow-300 font-bold">23 accesos</span> disponibles
+                    </p>
+                    <p class="text-sm text-white/80 mt-2">
+                        Una vez agotados, no habrá más disponibilidad hasta 2025
+                    </p>
+                </div>
+                
+                <!-- Price Reminder -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 mb-8">
+                    <h3 class="text-2xl font-bold text-white mb-4">RECUERDA LO QUE OBTIENES HOY:</h3>
+                    <div class="grid md:grid-cols-2 gap-4 text-left mb-6">
+                        <div class="space-y-2">
+                            <p class="text-white">✅ Sistema Revolution Completo (€197)</p>
+                            <p class="text-white">✅ Mentalidad de Éxito (€97)</p>
+                            <p class="text-white">✅ Ejercicios Revolution (€87)</p>
+                        </div>
+                        <div class="space-y-2">
+                            <p class="text-white">✅ Laboratorio Suplementos (€78)</p>
+                            <p class="text-white">✅ Consulta VIP Personal (€297)</p>
+                            <p class="text-white">✅ Comunidad Secreta (€47)</p>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-xl text-gray-300">Valor Total: <span class="line-through">€792</span></p>
+                        <p class="text-4xl font-black text-yellow-300">TU PRECIO: €5,99</p>
+                    </div>
+                </div>
+                
+                <button onclick="redirectToCheckout()" class="neon-border bg-yellow-400 hover:bg-yellow-300 text-black font-black text-2xl md:text-3xl px-16 py-8 rounded-full transition-all duration-300 transform hover:scale-105 animate-neon-pulse mb-8 w-full md:w-auto">
+                    🚀 SÍ, QUIERO MI TRANSFORMACIÓN AHORA 🚀
+                </button>
+                
+                <div class="text-white/80 space-y-2">
+                    <p>🔒 Pago 100% seguro y encriptado</p>
+                    <p>⚡ Acceso inmediato después del pago</p>
+                    <p>🛡️ Garantía total de 30 días</p>
+                    <p>📱 Compatible con todos los dispositivos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 bg-black text-center">
+        <div class="container mx-auto px-4">
+            <div class="mb-8">
+                <h3 class="text-2xl font-bold text-white mb-4">Recetas Revolution System</h3>
+                <p class="text-gray-400 mb-4">Transformando vidas a través de la alimentación funcional</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h4 class="font-bold text-emerald-400 mb-2">Contacto</h4>
+                    <p class="text-gray-400">📧 soporte@</p>
+                    <p class="text-gray-400">📱 WhatsApp: +34 600 123 456</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-royal-400 mb-2">Soporte</h4>
+                    <p class="text-gray-400">🕐 Disponible 24/7</p>
+                    <p class="text-gray-400">💬 Chat en vivo activado</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-amber-400 mb-2">Garantías</h4>
+                    <p class="text-gray-400">🛡️ 30 días de garantía total</p>
+                    <p class="text-gray-400">🔒 Pago 100% seguro</p>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8">
+                <p class="text-gray-400 text-sm mb-4">
+                    © 2024 Recetas Revolution System. Todos los derechos reservados.
+                </p>
+                <div class="flex justify-center space-x-6 text-sm">
+                    <a href="#" class="text-gray-400 hover:text-emerald-400">Términos y Condiciones</a>
+                    <a href="#" class="text-gray-400 hover:text-emerald-400">Política de Privacidad</a>
+                    <a href="#" class="text-gray-400 hover:text-emerald-400">Política de Reembolso</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const endTime = now + (3 * 60 * 60 * 1000) + (47 * 60 * 1000) + (23 * 1000); // 3:47:23
+            
+            setInterval(() => {
+                const current = new Date().getTime();
+                const distance = endTime - current;
+                
+                if (distance < 0) {
+                    // Reset countdown
+                    const newEndTime = current + (3 * 60 * 60 * 1000) + (47 * 60 * 1000) + (23 * 1000);
+                    updateDisplay(newEndTime - current);
+                    return;
+                }
+                
+                updateDisplay(distance);
+            }, 1000);
+        }
+        
+        function updateDisplay(distance) {
+            const hours = Math.floor(distance / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        // Stock Counter
+        function updateStock() {
+            let stock = 47;
+            const stockElement = document.getElementById('stockCounter');
+            const finalStockElement = document.getElementById('finalStock');
+            
+            setInterval(() => {
+                if (Math.random() < 0.1 && stock > 15) { // 10% chance every interval
+                    stock--;
+                    stockElement.textContent = stock;
+                    if (finalStockElement) {
+                        finalStockElement.textContent = Math.max(stock - 24, 3);
+                    }
+                }
+            }, 15000); // Every 15 seconds
+        }
+        
+        // Redirect to checkout
+        function redirectToCheckout() {
+            // Simulate redirect to payment page
+            alert('¡Redirigiendo al checkout seguro! 🚀');
+            // window.location.href = 'https://checkout.recetasrevolution.com';
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCountdown();
+            updateStock();
+        });
+        
+        // Animate elements on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for animation
+        document.addEventListener('DOMContentLoaded', () => {
+            const animateElements = document.querySelectorAll('.mega-bonus, .testimonial-card');
+            animateElements.forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(30px)';
+                el.style.transition = 'all 0.6s ease';
+                observer.observe(el);
+            });
+        });
+    </script>
+</body>
+</html>
