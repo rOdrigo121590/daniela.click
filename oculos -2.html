@@ -1,0 +1,1082 @@
+      <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kit Proteção Total - 2 Óculos Infantis + Faqueiro Grátis | 78% OFF</title>
+    <meta name="description" content="Kit Premium: 2 óculos infantis com proteção UV 400 + faqueiro artesanal de presente. Apenas R$ 197,00 (de R$ 896,00). Frete grátis e 30 dias de garantia!">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap');
+        
+        :root {
+            --primary: hsl(242, 77%, 68%);
+            --primary-dark: hsl(273, 39%, 47%);
+            --secondary: hsl(295, 91%, 78%);
+            --secondary-dark: hsl(352, 88%, 65%);
+            --accent: hsl(160, 84%, 39%);
+            --destructive: hsl(0, 84%, 60%);
+            --warning: hsl(38, 92%, 50%);
+            --background: hsl(0, 0%, 100%);
+            --foreground: hsl(222, 47%, 11%);
+            --muted: hsl(210, 40%, 96%);
+            --muted-foreground: hsl(215, 16%, 47%);
+            --gradient-primary: linear-gradient(135deg, hsl(242, 77%, 68%) 0%, hsl(273, 39%, 47%) 100%);
+            --gradient-secondary: linear-gradient(135deg, hsl(295, 91%, 78%) 0%, hsl(352, 88%, 65%) 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--foreground);
+            overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Floating Action Button */
+        .fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--destructive);
+            color: white;
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            z-index: 1000;
+            animation: pulse-fab 2s infinite;
+            text-decoration: none;
+            font-size: 24px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+        }
+
+        @keyframes pulse-fab {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Sticky Header */
+        .sticky-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 999;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .sticky-header.visible {
+            transform: translateY(0);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(102, 126, 234, 0.6);
+        }
+
+        .btn-secondary {
+            background: var(--gradient-secondary);
+            color: white;
+            box-shadow: 0 15px 35px rgba(245, 158, 11, 0.4);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(245, 158, 11, 0.6);
+        }
+
+        .btn-lg {
+            padding: 20px 50px;
+            font-size: 1.2rem;
+        }
+
+        .btn-xl {
+            padding: 25px 60px;
+            font-size: 1.4rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            color: white;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .floating-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            color: white;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(2deg); }
+            66% { transform: translateY(-10px) rotate(-1deg); }
+        }
+
+        /* Countdown */
+        .countdown {
+            background: rgba(239, 68, 68, 0.1);
+            backdrop-filter: blur(20px);
+            border: 2px solid var(--destructive);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .countdown-title {
+            color: var(--destructive);
+            font-weight: 700;
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+        }
+
+        .countdown-display {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .time-unit {
+            background: var(--destructive);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            min-width: 80px;
+            box-shadow: 0 10px 30px rgba(239, 68, 68, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .time-unit:hover {
+            transform: scale(1.05);
+        }
+
+        .time-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            display: block;
+        }
+
+        .time-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: var(--muted);
+            padding: 80px 0;
+        }
+
+        .stats-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--muted-foreground);
+            font-weight: 500;
+            margin-top: 10px;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .section-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        /* Problem Section */
+        .problem-section {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .problems-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+        }
+
+        .problem-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 40px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .problem-card:hover {
+            transform: scale(1.05);
+        }
+
+        .problem-icon {
+            font-size: 4rem;
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        /* Product Showcase */
+        .products-grid {
+            max-width: 1200px;
+            margin: 60px auto 0;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 60px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-top: 4px solid var(--secondary);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px);
+        }
+
+        .product-icon {
+            font-size: 5rem;
+            margin-bottom: 30px;
+            animation: bounce-slow 4s ease-in-out infinite;
+        }
+
+        @keyframes bounce-slow {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .product-features {
+            text-align: left;
+            margin-top: 30px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: var(--muted-foreground);
+        }
+
+        .feature-icon {
+            color: var(--accent);
+            margin-right: 12px;
+            font-size: 18px;
+        }
+
+        /* Pricing */
+        .pricing-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 30px;
+            padding: 60px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-badge {
+            background: var(--gradient-secondary);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+
+        .original-price {
+            color: var(--muted-foreground);
+            text-decoration: line-through;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .current-price {
+            font-size: 4rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        /* Testimonials */
+        .testimonials-grid {
+            max-width: 1200px;
+            margin: 60px auto 0;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .testimonial {
+            background: var(--muted);
+            border-radius: 25px;
+            padding: 40px;
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .testimonial:hover {
+            transform: scale(1.02);
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 30px;
+            font-size: 6rem;
+            color: var(--primary);
+            opacity: 0.2;
+            font-family: serif;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        /* Guarantee Section */
+        .guarantee-section {
+            background: var(--accent);
+            color: white;
+        }
+
+        .guarantee-features {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .guarantee-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Final CTA */
+        .final-cta {
+            background: var(--gradient-secondary);
+            color: white;
+        }
+
+        .urgency-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px 0;
+            display: inline-block;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--foreground);
+            color: white;
+            padding: 60px 0;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .current-price {
+                font-size: 3rem;
+            }
+            
+            .countdown-display {
+                gap: 10px;
+            }
+            
+            .time-unit {
+                min-width: 60px;
+                padding: 15px;
+            }
+            
+            .time-number {
+                font-size: 1.8rem;
+            }
+            
+            .problems-grid,
+            .products-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .guarantee-features {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Action Button -->
+    <button class="fab" onclick="scrollToCheckout()">🛒</button>
+
+    <!-- Sticky Header -->
+    <header class="sticky-header" id="stickyHeader">
+        <div class="header-content">
+            <div class="logo">Kit Proteção Total</div>
+            <button class="btn btn-primary" onclick="scrollToCheckout()">
+                Comprar Agora
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-badge">🎯 OFERTA EXCLUSIVA LIMITADA</span>
+                <h1 class="hero-title">
+                    Proteção <br>
+                    <span style="color: var(--warning);">Definitiva</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Kit Premium: 2 Óculos Infantis Tecnológicos + Faqueiro Artesanal de Presente
+                </p>
+                
+                <!-- Countdown -->
+                <div class="countdown">
+                    <div class="countdown-title">⚡ OFERTA EXPIRA EM:</div>
+                    <div class="countdown-display">
+                        <div class="time-unit">
+                            <span class="time-number" id="hours">23</span>
+                            <div class="time-label">Horas</div>
+                        </div>
+                        <div class="time-unit">
+                            <span class="time-number" id="minutes">47</span>
+                            <div class="time-label">Minutos</div>
+                        </div>
+                        <div class="time-unit">
+                            <span class="time-number" id="seconds">32</span>
+                            <div class="time-label">Segundos</div>
+                        </div>
+                    </div>
+                    <div style="font-size: 14px; opacity: 0.8;">
+                        ⚠️ Apenas <span id="stock" style="font-weight: 700;">18</span> kits restantes
+                    </div>
+                </div>
+
+                <button class="btn btn-secondary btn-lg" onclick="scrollToCheckout()">
+                    🚀 Garantir Meu Kit Premium
+                </button>
+            </div>
+            
+            <div>
+                <div class="floating-card">
+                    <div style="font-size: 4rem; margin-bottom: 20px;">👓✨</div>
+                    <h3 style="margin-bottom: 15px; font-size: 1.5rem;">Kit Completo</h3>
+                    <p style="opacity: 0.8;">
+                        Tecnologia UV Avançada<br>+ Design Exclusivo
+                    </p>
+                    <div style="margin-top: 25px; font-size: 2rem; font-weight: 800;">
+                        R$ 197,00
+                    </div>
+                    <div style="opacity: 0.7; font-size: 14px;">
+                        <s>De R$ 896,00</s> • 78% OFF
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section fade-in">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <span class="stat-number">8.247+</span>
+                <div class="stat-label">Mães Satisfeitas</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">99.2%</span>
+                <div class="stat-label">Aprovação</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">100%</span>
+                <div class="stat-label">Proteção UV</div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">30</span>
+                <div class="stat-label">Dias de Garantia</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section section fade-in">
+        <div class="section-header">
+            <h2 class="section-title">Reconhece Esses Medos?</h2>
+            <p class="section-subtitle">Sabemos exatamente pelo que você está passando...</p>
+        </div>
+        
+        <div class="problems-grid">
+            <div class="problem-card">
+                <span class="problem-icon">😰</span>
+                <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px;">
+                    Medo Constante pela Visão do Seu Filho
+                </h3>
+                <p>
+                    Você fica preocupada com o sol forte, telas de celular e tablets prejudicando os olhinhos delicados do seu pequeno. E se algo irreversível acontecer?
+                </p>
+            </div>
+            
+            <div class="problem-card">
+                <span class="problem-icon">💔</span>
+                <h3 style="font-size: 1.5rem; font-weight: 700; margin-bottom: 15px;">
+                    Você Sempre em Segundo Plano
+                </h3>
+                <p>
+                    Sempre pensando no bem-estar dos filhos, você nunca recebe nada especial. Quando foi a última vez que ganhou um presente só seu?
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase -->
+    <section class="section fade-in" style="background: white;">
+        <div class="section-header" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <h2 class="section-title" style="color: var(--foreground);">A Solução Que Você Esperava</h2>
+            <p class="section-subtitle" style="color: var(--muted-foreground);">
+                Proteção premium para seu filho + presente especial para você
+            </p>
+        </div>
+        
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-icon">👓</div>
+                <h3 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 20px;">
+                    2 Óculos Infantis Premium
+                </h3>
+                <p style="color: var(--muted-foreground); margin-bottom: 20px;">
+                    Tecnologia UV avançada com design resistente e confortável
+                </p>
+                
+                <div class="product-features">
+                    <div class="feature-item">
+                        <span class="feature-icon">✅</span>
+                        Proteção UV 400 certificada
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">✅</span>
+                        Material hipoalergênico
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">✅</span>
+                        Armação super flexível
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">✅</span>
+                        Design ergonômico
+                    </div>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-icon">🍴</div>
+                <h3 style="font-size: 1.8rem; font-weight: 700; margin-bottom: 20px;">
+                    Faqueiro Artesanal GRÁTIS
+                </h3>
+                <p style="color: var(--muted-foreground); margin-bottom: 20px;">
+                    Set completo em aço inoxidável premium - seu presente especial
+                </p>
+                
+                <div class="product-features">
+                    <div class="feature-item">
+                        <span class="feature-icon">✅</span>
+                        Aço inoxidável 18/10
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">✅</span>
+                        Design elegante
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">✅</span>
+                        Resistente à corrosão
+                    </div>
+                    <div class="feature-item">
+                        <span class="feature-icon">✅</span>
+                        Set completo (16 peças)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<img src="vv.png" alt="Descrição da imagem" width="400">
+            </div>
+    <!-- Pricing -->
+    <section class="section fade-in" style="background: var(--muted);">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <div class="pricing-card">
+                <div class="pricing-badge">🔥 PROMOÇÃO RELÂMPAGO</div>
+                
+                <div class="original-price">De R$ 896,00</div>
+                <div class="current-price">R$ 197<sup style="font-size: 2rem;">,00</sup></div>
+                <div style="color: var(--muted-foreground); font-size: 1.1rem; margin-bottom: 40px;">
+                    ou 12x de R$ 19,90 sem juros
+                </div>
+                
+                <button class="btn btn-primary btn-lg" onclick="scrollToCheckout()">
+                    ⚡ Quero Meu Kit Agora!
+                </button>
+                
+                <div style="margin-top: 30px; color: var(--muted-foreground); font-size: 14px;">
+                    ✅ Frete GRÁTIS • ✅ Entrega Rápida • ✅ Garantia Total
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section fade-in" style="background: white;">
+        <div class="section-header" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+            <h2 class="section-title" style="color: var(--foreground);">O Que Dizem Nossas Clientes</h2>
+            <p class="section-subtitle" style="color: var(--muted-foreground);">
+                Mais de 8.247 mães já transformaram suas vidas
+            </p>
+        </div>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial">
+                <p style="font-style: italic; font-size: 1.1rem; margin-bottom: 25px; color: var(--foreground); position: relative; z-index: 2;">
+                    Comprei pensando só no meu filho, mas acabei me apaixonando pelo faqueiro! É lindo demais e uso todos os dias. Meu filho ama os óculos e não sai mais sem eles.
+                </p>
+                <div class="author-info">
+                    <div class="author-avatar">MS</div>
+                    <div>
+                        <h4 style="font-weight: 700;">Marina Silva</h4>
+                        <p style="color: var(--muted-foreground); font-size: 14px;">
+                            São Paulo, SP ⭐⭐⭐⭐⭐
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <p style="font-style: italic; font-size: 1.1rem; margin-bottom: 25px; color: var(--foreground); position: relative; z-index: 2;">
+                    Melhor compra que já fiz! A qualidade é incrível e chegou super rápido. Minha filha está protegida e eu finalmente tenho um faqueiro bonito em casa. Recomendo muito!
+                </p>
+                <div class="author-info">
+                    <div class="author-avatar">AC</div>
+                    <div>
+                        <h4 style="font-weight: 700;">Ana Costa</h4>
+                        <p style="color: var(--muted-foreground); font-size: 14px;">
+                            Rio de Janeiro, RJ ⭐⭐⭐⭐⭐
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <p style="font-style: italic; font-size: 1.1rem; margin-bottom: 25px; color: var(--foreground); position: relative; z-index: 2;">
+                    Estava desconfiada no início, mas quando chegou fiquei impressionada! Os óculos são resistentes mesmo e o faqueiro é lindo. Meu filho usa os óculos até em casa.
+                </p>
+                <div class="author-info">
+                    <div class="author-avatar">CM</div>
+                    <div>
+                        <h4 style="font-weight: 700;">Carla Mendes</h4>
+                        <p style="color: var(--muted-foreground); font-size: 14px;">
+                            Belo Horizonte, MG ⭐⭐⭐⭐⭐
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Guarantee -->
+    <section class="guarantee-section section fade-in">
+        <div style="max-width: 1000px; margin: 0 auto; padding: 0 20px; text-align: center;">
+            <div style="font-size: 6rem; margin-bottom: 30px; opacity: 0.9;">🛡️</div>
+            <h2 style="font-size: 2.5rem; font-weight: 800; margin-bottom: 25px;">
+                Garantia Blindada de 30 Dias
+            </h2>
+            <p style="font-size: 1.3rem; opacity: 0.9; margin-bottom: 40px; font-weight: 300;">
+                Se você não ficar 100% satisfeita, devolvemos todo seu dinheiro. Sem perguntas, sem burocracia.
+            </p>
+            
+            <div class="guarantee-features">
+                <div class="guarantee-item">
+                    <span>🔒</span> Compra 100% Segura
+                </div>
+                <div class="guarantee-item">
+                    <span>💰</span> Dinheiro de Volta
+                </div>
+                <div class="guarantee-item">
+                    <span>⚡</span> Sem Burocracia
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section id="final-cta" class="final-cta section fade-in">
+        <div style="max-width: 800px; margin: 0 auto; padding: 0 20px; text-align: center;">
+            <h2 style="font-size: 3.5rem; font-weight: 800; margin-bottom: 25px;">
+                Últimas <span style="color: var(--warning);" id="final-stock">18</span> Unidades!
+            </h2>
+            <p style="font-size: 1.4rem; opacity: 0.9; margin-bottom: 50px; font-weight: 300;">
+                Não deixe essa oportunidade passar. Proteja seu filho e ganhe seu presente especial agora.
+            </p>
+            
+            <div class="urgency-box">
+                <div style="font-size: 1.2rem; font-weight: 700; margin-bottom: 10px;">
+                    🔥 OFERTA EXPIRA EM BREVE
+                </div>
+                <div style="font-size: 2.5rem; font-weight: 800;">R$ 197,00</div>
+                <div style="opacity: 0.8;">12x de R$ 19,90 sem juros</div>
+            </div>
+            
+            <a href="https://go.perfectpay.com.br/PPU38CPQLPR" target="_blank" class="btn btn-primary btn-xl" style="margin-bottom: 30px;">
+    🛒 Garantir Meu Kit Premium Agora!
+               </a>
+           </div>    
+            
+                            <div style="font-size: 14px; opacity: 0.9;">
+                🚚 Frete GRÁTIS para todo Brasil | 🔐 Pagamento 100% Seguro | 🛡️ Garantia de 30 dias
+            </div>
+             </div>
+           </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px; text-align: center;">
+            <div style="margin-bottom: 30px;">
+                <div class="logo" style="font-size: 2rem; color: white; margin-bottom: 10px;">
+                    Kit Proteção Total
+                </div>
+                <p style="color: rgba(255, 255, 255, 0.7);">Protegendo famílias desde 2020</p>
+            </div>
+            
+            <div class="footer-links">
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Termos de Uso</a>
+                <a href="#">Contato</a>
+                <a href="#">FAQ</a>
+                <a href="#">Rastreamento</a>
+            </div>
+            
+            <div style="margin-top: 40px; padding-top: 30px; border-top: 1px solid rgba(255, 255, 255, 0.2); color: rgba(255, 255, 255, 0.7);">
+                © 2025 Kit Proteção Total. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Countdown Timer
+        let timeLeft = {
+            hours: 23,
+            minutes: 47,
+            seconds: 32
+        };
+
+        function updateTimer() {
+            if (timeLeft.seconds > 0) {
+                timeLeft.seconds--;
+            } else if (timeLeft.minutes > 0) {
+                timeLeft.minutes--;
+                timeLeft.seconds = 59;
+            } else if (timeLeft.hours > 0) {
+                timeLeft.hours--;
+                timeLeft.minutes = 59;
+                timeLeft.seconds = 59;
+            }
+
+            document.getElementById('hours').textContent = timeLeft.hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = timeLeft.minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = timeLeft.seconds.toString().padStart(2, '0');
+        }
+
+        setInterval(updateTimer, 1000);
+
+        // Stock Management
+        let stock = 18;
+        
+        function updateStock() {
+            if (stock > 12) {
+                stock--;
+                document.getElementById('stock').textContent = stock;
+                document.getElementById('final-stock').textContent = stock;
+            }
+        }
+
+        setInterval(updateStock, 45000);
+
+        // Sticky Header
+        window.addEventListener('scroll', function() {
+            const stickyHeader = document.getElementById('stickyHeader');
+            if (window.scrollY > 100) {
+                stickyHeader.classList.add('visible');
+            } else {
+                stickyHeader.classList.remove('visible');
+            }
+        });
+
+        // Scroll Animations
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.fade-in');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+
+        // Scroll to Checkout
+        function scrollToCheckout() {
+            document.getElementById('final-cta').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Handle Checkout
+        function handleCheckout() {
+            alert('🎉 Redirecionando para o pagamento seguro...\n\n✅ Kit Proteção Total Premium\n✅ R$ 197,00 (78% OFF)\n✅ Frete GRÁTIS\n✅ Garantia de 30 dias\n\nEm produção, aqui seria integrado o gateway de pagamento.');
+        }
+    </script>
+</body>
+</html>
