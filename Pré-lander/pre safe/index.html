@@ -159,5 +159,167 @@
     };
     document.getElementById('enter-btn').addEventListener('click', toChat);
   </script>
+
+ <!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Aviso de Cookies Popup</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    /* Conteúdo do fundo */
+    #conteudo {
+        min-height: 100vh;
+        padding: 40px;
+        background: url('https://picsum.photos/1200/800') center/cover no-repeat;
+        transition: filter 0.4s ease;
+    }
+
+    /* Efeito de fundo desfocado */
+    .blur {
+        filter: blur(6px) brightness(0.7);
+    }
+
+    /* POP-UP (modal) */
+    #popup-cookies {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 350px;
+        background: white;
+        padding: 25px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.4);
+        z-index: 9999;
+        display: none;
+        animation: aparecer 0.4s ease;
+    }
+
+    /* Título em laranja */
+    #popup-cookies h3 {
+        color: orange;
+    }
+
+    /* Parágrafo com cor preta */
+    #popup-cookies p {
+        color: black;
+    }
+
+    @keyframes aparecer {
+        from {
+            opacity: 0;
+            transform: translate(-50%, -45%);
+        }
+        to {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    /* Botão */
+    #popup-cookies button {
+        padding: 10px 20px;
+        border: none;
+        background: #0078ff;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+    /* Fundo escurecido */
+    #overlay {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.7);
+        top: 0;
+        left: 0;
+        z-index: 9998;
+        display: none;
+    }
+
+    /* Animação de fechamento */
+    #popup-cookies.fade-out {
+        animation: desaparecer 0.4s forwards;
+    }
+
+    @keyframes desaparecer {
+        from {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
+        to {
+            opacity: 0;
+            transform: translate(-50%, -45%);
+        }
+    }
+
+    /* Responsivo para telas pequenas */
+    @media (max-width: 400px) {
+        #popup-cookies {
+            width: 90%;
+            padding: 20px;
+        }
+    }
+</style>
+</head>
+<body>
+
+<div id="conteudo">
+    <h1>Bem-vindo ao meu site</h1>
+    <p>O conteúdo ficará desfocado enquanto o pop-up aparece.</p>
+</div>
+
+<div id="overlay"></div>
+
+<div id="popup-cookies">
+    <h3>Usamos Cookies</h3>
+    <p>Este site utiliza cookies para melhorar sua experiência.</p>
+    <button onclick="aceitarCookies()">Aceitar</button>
+</div>
+
+<script>
+    window.onload = function() {
+        // Mostrar popup apenas se o usuário não tiver aceitado ainda
+        if (!localStorage.getItem("cookiesAceitos")) {
+            document.getElementById("popup-cookies").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+            document.getElementById("conteudo").classList.add("blur");
+        }
+    }
+
+    function aceitarCookies() {
+        // Salva que o usuário aceitou cookies
+        localStorage.setItem("cookiesAceitos", "true");
+
+        // Fecha o pop-up com animação
+        const popup = document.getElementById("popup-cookies");
+        popup.classList.add("fade-out");
+        document.getElementById("overlay").style.display = "none";
+
+        setTimeout(() => {
+            popup.style.display = "none";
+            document.getElementById("conteudo").classList.remove("blur");
+
+            // Redireciona para o link desejado
+            window.location.href = "https://daniela.click/index%20-%20espanhol-pg2.html"; // <--- Coloque seu link aqui
+        }, 400);
+    }
+
+    // Fechar clicando no overlay
+    document.getElementById("overlay").onclick = aceitarCookies;
+</script>
+
+</body>
+</html>
+  
 </body>
 </html>
