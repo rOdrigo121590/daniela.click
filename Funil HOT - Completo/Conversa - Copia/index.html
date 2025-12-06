@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Conversa</title>
+  <meta name="application-name" content="Conversa">
+  <meta name="apple-mobile-web-app-title" content="Conversa">
+  <meta name="theme-color" content="#0a7c66">
+  <meta name="msapplication-TileColor" content="#0a7c66">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16.png">
+  <link rel="shortcut icon" href="assets/icons/favicon.ico">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+
+  <!-- CSS: preload (prioriza download) + stylesheet padrão (aplica estilo) -->
+  <link rel="preload" href="style.css" as="style">
+  <link id="main-css" rel="stylesheet" href="style.css">
+
+  <!-- Anti-FOUC: mantém o mesmo tom do tema e só exibe a app quando o CSS estiver pronto -->
+  <style>
+    /* mesmo papel bege do tema para evitar “flash” branco no mobile */
+    html { background:#e5ddd5; }
+    /* oculta a app até a folha carregar */
+    .app { opacity:0 }
+    html.css-ready .app { opacity:1; transition:opacity .18s ease }
+    /* avatar com fade-in para evitar flash do JPG */
+    .avatar { opacity:0; transition:opacity .18s ease }
+    .avatar.is-loaded { opacity:1 }
+  </style>
+
+  <script>
+    // Marca quando o CSS terminou de carregar → evita FOUC
+    (function(){
+      var link = document.getElementById('main-css');
+      function ready(){ document.documentElement.classList.add('css-ready'); }
+      if (link && (link.sheet || link.matches?.(':loaded'))) {
+        // já carregado (alguns browsers expõem .sheet / :loaded)
+        ready();
+      } else if (link) {
+        link.addEventListener('load', ready, { once: true });
+      }
+      // fallback extra: garante após load da página
+      window.addEventListener('load', ready, { once: true });
+    })();
+  </script>
+
+  <!-- Preloads / Prefetch (iguais aos seus) -->
+  <link rel="preload" as="image" href="assets/avatar.jpg">
+  <link rel="preload" as="image" href="assets/foto1.jpg">
+  <link rel="preload" as="audio" href="assets/audio1.mp3" crossorigin>
+
+  <link rel="prefetch" href="assets/foto2.jpg"  as="image">
+  <link rel="prefetch" href="assets/foto3.jpg"  as="image">
+  <link rel="prefetch" href="assets/foto4.jpg"  as="image">
+  <link rel="prefetch" href="assets/foto5.jpg"  as="image">
+  <link rel="prefetch" href="assets/foto6.jpg"  as="image">
+  <link rel="prefetch" href="assets/foto7.jpg"  as="image">
+  <link rel="prefetch" href="assets/foto8.jpg"  as="image">
+
+  <link rel="prefetch" href="assets/audio2.mp3" as="audio">
+  <link rel="prefetch" href="assets/audio3.mp3" as="audio">
+  <link rel="prefetch" href="assets/audio4.mp3" as="audio">
+</head>
+<body>
+  <div class="app">
+    <header class="wpp-header">
+      <div class="left">
+        <button class="back" aria-label="Voltar" title="Voltar">←</button>
+
+        <!-- Avatar com width/height (evita reflow) e fade-in no onload -->
+        <img
+          class="avatar"
+          id="avatar"
+          src="assets/avatar.jpg"
+          alt="avatar"
+          width="40"
+          height="40"
+          decoding="async"
+          fetchpriority="high"
+          onload="this.classList.add('is-loaded')"
+        />
+
+        <div class="meta">
+          <div class="name" id="contact-name">Paloma Amorim</div>
+          <div class="status" id="status">Online</div>
+        </div>
+      </div>
+      <div class="right">
+        <button class="icon-btn" aria-label="Chamada de vídeo" title="Chamada de vídeo">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="3" y="5" width="12" height="14" rx="2" ry="2" fill="currentColor"/>
+            <path d="M16 10l5-3v10l-5-3z" fill="currentColor"/>
+          </svg>
+        </button>
+        <button class="icon-btn" aria-label="Chamada de voz" title="Chamada de voz">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.05-.24 11.4 11.4 0 0 0 3.58.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 7a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11.4 11.4 0 0 0 .57 3.58 1 1 0 0 1-.24 1.05l-2.21 2.16z" fill="currentColor"/>
+          </svg>
+        </button>
+        <button class="icon-btn" aria-label="Mais opções" title="Mais opções">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="5" r="1.8" fill="currentColor"/>
+            <circle cx="12" cy="12" r="1.8" fill="currentColor"/>
+            <circle cx="12" cy="19" r="1.8" fill="currentColor"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="messages" class="messages">
+      <!-- banner removido para não piscar / não exibir -->
+    </main>
+
+    <form id="chat-form" class="inputbar" autocomplete="off">
+      <input id="chat-input" type="text" placeholder="Escreva uma mensagem" />
+      <button type="submit" aria-label="Enviar">➤</button>
+    </form>
+  </div>
+
+  <script src="chat.js"></script>
+
+  <script>
+  (function () {
+    try {
+      // Pré-carrega imagens e áudios para minimizar piscadas depois
+      const imgs = [
+        "assets/avatar.jpg",
+        "assets/foto1.jpg","assets/foto2.jpg","assets/foto3.jpg","assets/foto4.jpg",
+        "assets/foto5.jpg","assets/foto6.jpg","assets/foto7.jpg","assets/foto8.jpg"
+      ];
+      imgs.forEach(src => { const i = new Image(); i.decoding = "async"; i.src = src; });
+
+      const audios = ["assets/audio1.mp3","assets/audio2.mp3","assets/audio3.mp3","assets/audio4.mp3"];
+      audios.forEach(src => { const a = new Audio(); a.preload = "auto"; a.src = src; });
+    } catch (e) {}
+  })();
+  </script>
+</body>
+</html>

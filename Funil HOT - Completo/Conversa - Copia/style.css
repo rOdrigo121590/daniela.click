@@ -1,0 +1,572 @@
+/* =========================================
+   Conteúdo Hott – Chat UI (LIGHT WhatsApp)
+   Mantém classes originais. Acentos verdes.
+========================================= */
+
+/* ---------- Tokens ---------- */
+:root{
+  /* WhatsApp “papel bege” */
+  --bg:#e5ddd5;    /* fundo da página */
+  --chat:#efeae2;  /* área do chat (cartão) */
+  --line:#d9d2c9;  /* bordas mais quentes (opcional) */
+
+  /* pode manter o resto igual */
+  --wpp-header:#075e54;
+  --wpp-accent:#25D366;
+  --bubble-in:#ffffff;
+  --bubble-out:#dcf8c6;
+  --text:#111;
+  --muted:#6b6b6b;
+  --shadow:0 1px 0 rgba(0,0,0,.06);
+}
+
+
+/* ---------- Base ---------- */
+*{box-sizing:border-box}
+html,body{height:100%}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial;
+  color:var(--text);
+  background:
+    radial-gradient(900px 900px at 110% -10%, rgba(37,211,102,.05), transparent 45%),
+    radial-gradient(800px 800px at -10% 110%, rgba(7,94,84,.06), transparent 40%),
+    var(--bg);
+}
+
+/* ---------- App shell ---------- */
+.app{
+  height:100vh; max-width:1280px; margin:0 auto;
+  display:flex; flex-direction:column;
+  background:var(--chat);
+  position:relative;
+  box-shadow:var(--shadow);
+  border:1px solid var(--line);
+  border-radius:22px;
+  overflow:hidden;
+}
+
+/* ---------- Header (verde) ---------- */
+.wpp-header{
+  height:64px;
+  background:
+    linear-gradient(180deg, rgba(7,94,84,.95), rgba(7,94,84,.90)),
+    var(--wpp-header);
+  color:#fff;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 14px; position:sticky; top:0; z-index:2;
+  box-shadow:0 6px 20px rgba(7,94,84,.25);
+  backdrop-filter:saturate(1.2) blur(8px);
+}
+.wpp-header .left{display:flex;align-items:center;gap:12px}
+.wpp-header .back{
+  background:transparent; border:none; color:#fff; font-size:22px; cursor:pointer;
+  width:36px; height:36px; display:grid; place-items:center; border-radius:10px;
+  transition:transform .15s ease, background .15s ease, opacity .15s ease;
+  opacity:.95;
+}
+.wpp-header .back:hover{ background:rgba(255,255,255,.12) }
+.wpp-header .back:active{ transform:scale(.96) }
+.wpp-header .avatar{
+  width:40px;height:40px;border-radius:50%;object-fit:cover;
+  box-shadow:0 0 0 2px rgba(255,255,255,.25), 0 3px 12px rgba(0,0,0,.25)
+}
+
+/* Nome + Online empilhados à esquerda */
+.wpp-header .meta{
+  display:flex !important; flex-direction:column !important; align-items:flex-start !important;
+  line-height:1.05;
+}
+.wpp-header .meta .name,
+.wpp-header #contact-name{
+  display:block !important; color:#fff !important;
+  font-weight:800; font-size:18px; letter-spacing:.2px; margin:0 0 2px 0;
+}
+.wpp-header .meta .status,
+.wpp-header #status{
+  display:block !important; color:#e6fff1 !important; opacity:.95 !important;
+  font-size:12.5px; margin:0 !important; position:relative; padding-left:12px;
+}
+.wpp-header #status::before{
+  content:""; position:absolute; left:0; top:50%; transform:translateY(-50%);
+  width:6px; height:6px; border-radius:50%; background:#57ff9c;
+  box-shadow:0 0 0 2px rgba(87,255,156,.25);
+}
+
+/* Ícones à direita */
+.wpp-header .right{display:flex; align-items:center; gap:14px}
+.icon-btn{
+  appearance:none; background:transparent; border:none; padding:6px;
+  display:grid; place-items:center; cursor:pointer; color:#fff;
+  border-radius:12px; opacity:.95; transition:opacity .15s ease, transform .1s ease, background .15s ease;
+}
+.icon-btn svg{ width:22px; height:22px; display:block; fill:currentColor }
+.icon-btn:hover{ opacity:1; background:rgba(255,255,255,.12) }
+.icon-btn:active{ transform:translateY(1px) scale(.98) }
+
+/* ---------- Área de mensagens ---------- */
+.messages{
+  flex:1; overflow-y:auto; padding:20px 18px 120px;
+  background:
+    radial-gradient(520px 520px at 20% 15%, rgba(0,0,0,.03), transparent 40%),
+    radial-gradient(600px 600px at 78% 35%, rgba(0,0,0,.025), transparent 45%),
+    var(--chat);
+}
+.messages::-webkit-scrollbar{ width:10px }
+.messages::-webkit-scrollbar-thumb{
+  background:linear-gradient(180deg,#cfe7d9,#b7dbc7);
+  border-radius:8px; border:1px solid #e0efe6;
+}
+.messages::-webkit-scrollbar-track{ background:transparent }
+
+/* Banner “conta comercial” (com borda verde) */
+.banner{
+  margin:0 auto 18px auto; width:max-content;
+  background:#eaf8ef; color:#0b5e4f; font-size:13px; font-weight:600;
+  padding:7px 10px; border-radius:10px; display:flex; align-items:center; gap:8px;
+  border:1px solid #bfe9cf; box-shadow:var(--shadow);
+}
+.banner .i{
+  display:inline-grid; place-items:center;
+  width:18px; height:18px; border-radius:50%; background:#0b5e4f; color:#fff; font-size:12px; font-weight:800;
+}
+
+/* ---------- Bolhas ---------- */
+.row{display:flex; align-items:flex-end; gap:10px; margin:8px 0}
+.row.left{justify-content:flex-start}
+.row.right{justify-content:flex-end}
+
+.row .thumb{
+  width:36px;height:36px;border-radius:50%;overflow:hidden;flex:0 0 36px;
+  box-shadow:0 3px 10px rgba(16,24,40,.08);
+}
+.row .thumb img{width:100%;height:100%;object-fit:cover}
+
+.bubble{
+  max-width:min(72vw,680px);
+  background:var(--bubble-in);
+  border:1px solid #e6eee8;
+  border-radius:14px; padding:10px 12px 8px; position:relative; box-shadow:var(--shadow);
+  font-size:15px; line-height:1.48; letter-spacing:.1px;
+  transition: transform .25s cubic-bezier(.2,.7,.2,1), box-shadow .25s cubic-bezier(.2,.7,.2,1);
+}
+.bubble:hover{ transform:translateY(-1px); box-shadow:var(--shadow-raise) }
+
+/* Bolha do usuário (verde claro) */
+.right .bubble{
+  background:var(--bubble-out);
+  color:#0f2a1d;
+  border:1px solid #bfe9cf;
+}
+
+/* meta/time/checks */
+.meta{
+  display:flex; gap:8px; align-items:center; color:var(--muted);
+  font-size:12.5px; margin-top:6px;
+}
+.row.right .meta{ justify-content:flex-end }
+.time{opacity:.9}
+.checks{opacity:.95; transition: color .25s ease}
+.meta .checks.seen{ color:#34b7f1 }
+
+/* “caudas” */
+.left .bubble::before{
+  content:""; position:absolute; left:-7px; top:8px;
+  width:0; height:0; border:8px solid transparent; border-right-color:var(--bubble-in);
+  filter:drop-shadow(0 1px 0 rgba(0,0,0,.04));
+}
+.right .bubble::after{
+  content:""; position:absolute; right:-7px; top:8px;
+  width:0; height:0; border:8px solid transparent; border-left-color:#dcf8c6;
+  filter:drop-shadow(0 1px 0 rgba(0,0,0,.04));
+}
+
+/* ---------- Card de áudio ---------- */
+.audio{ display:flex; align-items:center; gap:12px; min-width:280px }
+.play{
+  width:38px;height:38px;border-radius:50%;
+  border:1px solid rgba(7,94,84,.35);
+  cursor:pointer; background:linear-gradient(180deg,#18a58f,#075e54); color:#fff;
+  display:grid; place-items:center; font-size:16px; box-shadow:0 2px 0 rgba(16,24,40,.06), 0 8px 24px rgba(7,94,84,.25);
+  transition: transform .15s ease, filter .15s ease;
+}
+.play:hover{ filter:brightness(1.04) }
+.play:active{ transform:scale(.96) }
+.play .ic{ width:18px; height:18px; display:block }
+.tline{ flex:1; height:4px; background:#e7edf3; border-radius:3px; position:relative; overflow:hidden }
+.tline i{ position:absolute; left:0; top:0; bottom:0; width:0%; background:linear-gradient(90deg,#34b7f1,var(--wpp-accent)); border-radius:3px }
+.aud-time{ font-size:12.5px; color:var(--muted); min-width:76px; text-align:right }
+
+/* ===== Input fixado (mais comprido) ===== */
+.inputbar{
+  position:fixed; left:0; right:0; bottom:0;
+  max-width:1280px; margin:0 auto;
+
+  display:flex; align-items:center; gap:12px;
+  padding:14px 16px;
+
+  background:linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.78));
+  border-top:1px solid var(--line);
+  backdrop-filter:saturate(1.05) blur(8px);
+}
+
+/* Campo mais longo e confortável */
+.inputbar input{
+  flex:1 1 880px;          /* <<< aumenta o comprimento base */
+  min-width: 320px;        /* evita ficar curto em telas médias */
+  max-width: 1100px;       /* segura pra não “estourar” em telas muito largas */
+  height:54px;
+
+  border-radius:28px;
+  border:1px solid #dcdcdc;
+  background:#fff;
+  padding:0 18px;
+  font-size:16px;
+  color:var(--text);
+
+  transition: box-shadow .15s ease, border-color .15s ease, background .15s ease;
+}
+.inputbar input::placeholder{ color:#8aa09a }
+.inputbar input:focus{
+  border-color:#bfe9cf;
+  box-shadow:0 0 0 3px rgba(37,211,102,.18);
+}
+
+/* === BOTÃO ENVIAR – redondo, verde, seta branca === */
+.inputbar button{
+  /* forma e posição */
+  width:56px !important;
+  height:56px !important;
+  border-radius:999px !important;
+  display:inline-block !important;
+  position:relative !important;
+
+  /* aparência */
+  border:none !important;
+  background:linear-gradient(180deg, var(--wpp-accent), var(--wpp-accent-dark)) !important;
+  box-shadow:
+    0 10px 24px rgba(37,211,102,.28),
+    inset 0 -2px 0 rgba(0,0,0,.08) !important;
+
+  /* evita que um texto “➤” interfira */
+  color:transparent !important;
+
+  /* interação */
+  cursor:pointer !important;
+  transition:transform .12s ease, filter .12s ease, box-shadow .12s ease !important;
+  z-index:1;
+}
+
+.inputbar button:hover{
+  filter:brightness(1.06);
+  box-shadow:
+    0 12px 30px rgba(37,211,102,.34),
+    inset 0 -2px 0 rgba(0,0,0,.08);
+  transform: translateY(-1px);
+}
+.inputbar button:active{
+  transform: translateY(0) scale(.98);
+}
+
+/* ÍCONE da seta (SVG branco centralizado) */
+.inputbar button::before{
+  content:"";
+  position:absolute;
+  left:50%; top:50%;
+  width:24px; height:24px;           /* tamanho do ícone */
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+
+  /* SVG em background (não usa mask; funciona em todo browser) */
+  background:
+    url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">\
+<path fill="white" d="M3 11.3 20.2 3.6c.8-.4 1.7.4 1.3 1.2L14.8 21.1c-.3.8-1.5.8-1.8 0l-2.4-6.1-6.1-2.4c-.8-.3-.8-1.5 0-1.8z"/></svg>') center/contain no-repeat !important;
+  opacity:1;
+}
+
+/* responsivo */
+@media (max-width:740px){
+  .inputbar button{ width:52px !important; height:52px !important }
+  .inputbar button::before{ width:22px; height:22px }
+}
+
+
+
+/* ---------- CTA / Chips ---------- */
+.cta{margin-top:8px}
+.cta a{
+  display:inline-block; background:var(--wpp-accent); color:#083a2f; text-decoration:none;
+  padding:10px 14px; border-radius:18px; font-weight:800;
+  box-shadow:0 6px 18px rgba(37,211,102,.22); border:1px solid rgba(37,211,102,.35);
+  transition: transform .12s ease, filter .12s ease;
+}
+.cta a:hover{ filter:brightness(1.04) }
+.cta a:active{ transform:translateY(1px) }
+
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.chip{
+  background:#fff;border:1px solid #d6eada;border-radius:16px;
+  padding:6px 10px; font-size:14px; cursor:pointer; user-select:none;
+  box-shadow:var(--shadow);
+  transition: transform .12s ease, background .12s ease, border-color .12s ease;
+}
+.chip:hover{ background:#f3fbf6; transform:translateY(-1px) }
+
+/* ---------- Animações / states ---------- */
+.bubble.enter{ animation:msgIn .22s ease-out both; transform:translateY(6px); opacity:0 }
+@keyframes msgIn{ to{ transform:none; opacity:1 } }
+
+.typing-wrap .bubble{ background:var(--bubble-in) }
+.typing{ display:inline-flex; align-items:center; gap:5px }
+.typing .dot{ width:6px; height:6px; background:#9fb4a8; border-radius:50%; animation:blink 1.2s infinite }
+.typing .dot:nth-child(2){ animation-delay:.2s }
+.typing .dot:nth-child(3){ animation-delay:.4s }
+@keyframes blink{ 0%,80%,100%{opacity:.22} 40%{opacity:1} }
+
+/* =======================
+   Recording badge (pro, simples + animado)
+   ======================= */
+.recording-wrap .bubble{
+  background: var(--bubble-in);
+  border: 1px solid #cfead9;               /* verde claro do tema */
+  box-shadow: 0 2px 10px rgba(0,0,0,.04);
+}
+
+.recording.pro{
+  display:inline-flex; align-items:center; gap:12px;
+  min-height:40px; padding:8px 14px; border-radius:999px;
+  color:#2f4c43; font-size:clamp(14px,2.4vw,16px); line-height:1; white-space:nowrap;
+}
+
+/* MIC grande e simples */
+.recording.pro .mic{
+  width:36px; height:36px; border-radius:50%;
+  display:inline-flex; align-items:center; justify-content:center;
+  background:#f3fffa;                      /* fundo muito claro esverdeado */
+  border:1px solid #bfe9cf;
+  position:relative; overflow:hidden;
+  box-shadow:0 0 0 2px rgba(191,233,207,.18);
+}
+
+/* Ícone do microfone */
+.recording.pro .mic svg{
+  width:20px; height:20px; display:block;
+  fill:#075e54;                              /* verde do header */
+  animation: micBreath 2.2s ease-in-out infinite;  /* “respiração” suave */
+  transform-origin:center;
+}
+
+/* Halo pulsando ao redor do mic */
+.recording.pro .mic::after{
+  content:""; position:absolute; inset:-2px; border-radius:50%;
+  box-shadow:0 0 0 0 rgba(37,211,102,.35);
+  animation: micPulse 1.6s ease-out infinite;
+}
+
+/* Texto */
+.recording.pro .label{
+  letter-spacing:.2px;
+  color:#2f4c43;
+}
+
+/* ===== Animações ===== */
+@keyframes micPulse{
+  0%   { box-shadow:0 0 0 0  rgba(37,211,102,.35) }
+  70%  { box-shadow:0 0 0 14px rgba(37,211,102,0) }
+  100% { box-shadow:0 0 0 0  rgba(37,211,102,0) }
+}
+
+@keyframes micBreath{
+  0%,100% { transform:scale(1) }
+  50%     { transform:scale(1.08) }
+}
+
+/* Acessibilidade: reduz movimento se o usuário preferir */
+@media (prefers-reduced-motion: reduce){
+  .recording.pro .mic::after,
+  .recording.pro .mic svg{
+    animation:none !important;
+  }
+}
+
+/* Mobile */
+@media (max-width:480px){
+  .recording.pro{ gap:10px; padding:7px 12px }
+  .recording.pro .mic{ width:34px; height:34px }
+  .recording.pro .mic svg{ width:18px; height:18px }
+}
+
+
+/* Animações */
+@keyframes micBreath{
+  0%{ box-shadow:0 0 0 0 rgba(37,211,102,.35) }
+  70%{ box-shadow:0 0 0 10px rgba(37,211,102,0) }
+  100%{ box-shadow:0 0 0 0 rgba(37,211,102,0) }
+}
+@keyframes micWave{
+  0%,100%{ transform:scale(0.85) }
+  50%{ transform:scale(1.08) }
+}
+@keyframes eqBeat{
+  0%,100%{ transform:scaleY(.35) }
+  50%{ transform:scaleY(1) }
+}
+
+/* Acessibilidade: reduzir movimento */
+@media (prefers-reduced-motion: reduce){
+  .recording.pro .mic::after,
+  .recording.pro .mic .wave,
+  .recording.pro .eq i{ animation:none !important }
+}
+
+/* Mobile */
+@media (max-width:480px){
+  .recording.pro{ gap:8px; padding:6px 10px }
+  .recording.pro .eq{ height:12px }
+}
+
+/* Equalizador animado */
+.recording.pro .eq{
+  display:inline-flex; align-items:flex-end; gap:3px;
+  height: 14px;                           /* altura base */
+}
+.recording.pro .eq i{
+  display:block; width:3px; height: 30%;
+  background: #0b5e4f;                    /* verde do tema */
+  border-radius: 2px;
+  transform-origin: center bottom;
+  animation: eqBeat 1s ease-in-out infinite;
+  opacity:.9;
+}
+.recording.pro .eq i:nth-child(1){ animation-delay: .0s }
+.recording.pro .eq i:nth-child(2){ animation-delay: .15s }
+.recording.pro .eq i:nth-child(3){ animation-delay: .30s }
+.recording.pro .eq i:nth-child(4){ animation-delay: .45s }
+
+@keyframes eqBeat{
+  0%, 100% { transform: scaleY(.35) }
+  50%      { transform: scaleY(1) }
+}
+
+/* Texto */
+.recording.pro .label{
+  letter-spacing:.2px;
+  color: #2f4c43;
+}
+
+/* Acessibilidade: reduz animações */
+@media (prefers-reduced-motion: reduce){
+  .recording.pro .mic::after,
+  .recording.pro .eq i{
+    animation: none !important;
+  }
+}
+
+/* Ajustes finos em telas pequenas */
+@media (max-width: 480px){
+  .recording.pro{ gap:8px; padding:6px 10px }
+  .recording.pro .eq{ height:12px }
+}
+
+/* ---------- Utilidades ---------- */
+.small{ font-size:12px; color:var(--muted) }
+
+/* Responsivo */
+@media (max-width: 640px){
+  .app{ border-radius:0; height:100dvh }
+  .wpp-header{ height:60px }
+  .messages{ padding:16px 12px 100px }
+  .bubble{ max-width:85vw; font-size:15px }
+  .wpp-header .meta .name{ font-size:17px }
+  .inputbar{ padding:8px }
+  .inputbar input{ height:46px }
+  .inputbar button{ height:46px; width:46px }
+}
+/* Oculta o banner "Esta é uma conta comercial" */
+.banner{ display:none !important; }
+
+/* === ENVIAR: redondo, VERDE sólido e seta BRANCA visível === */
+.inputbar button{
+  width:56px !important;
+  height:56px !important;
+  border-radius:999px !important;
+  border:none !important;
+  position:relative !important;
+  display:inline-block !important;
+  cursor:pointer !important;
+
+  /* força verde sólido para evitar qualquer override que deixe branco */
+  background:#25D366 !important;
+
+  box-shadow:
+    0 10px 22px rgba(37,211,102,.28),
+    inset 0 -2px 0 rgba(0,0,0,.08) !important;
+
+  color:transparent !important;      /* ignora qualquer "➤" de texto */
+  transition:transform .12s ease, filter .12s ease, box-shadow .12s ease !important;
+}
+.inputbar button:hover{
+  filter:brightness(1.06);
+  transform:translateY(-1px);
+}
+.inputbar button:active{
+  transform:translateY(0) scale(.98);
+}
+
+/* ÍCONE – seta BRANCA usando máscara (sempre nítida) */
+.inputbar button::before{
+  content:"";
+  position:absolute;
+  left:50%; top:50%;
+  width:24px; height:24px;                /* tamanho do ícone */
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+
+  background:#ffffff !important;          /* COR da seta */
+  -webkit-mask:url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">\
+<path d=\"M3 11.3L20.2 3.6c.8-.4 1.7.4 1.3 1.2L14.8 21.1c-.3.8-1.5.8-1.8 0l-2.4-6.1-6.1-2.4c-.8-.3-.8-1.5 0-1.8z\"/></svg>') center/contain no-repeat;
+          mask:url('data:image/svg+xml;utf8,\
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">\
+<path d=\"M3 11.3L20.2 3.6c.8-.4 1.7.4 1.3 1.2L14.8 21.1c-.3.8-1.5.8-1.8 0l-2.4-6.1-6.1-2.4c-.8-.3-.8-1.5 0-1.8z\"/></svg>') center/contain no-repeat;
+}
+
+/* responsivo */
+@media (max-width:740px){
+  .inputbar button{ width:52px !important; height:52px !important }
+  .inputbar button::before{ width:22px; height:22px }
+}
+/* ==== MOBILE: botão redondo e espaçoso ==== */
+@media (max-width: 740px){
+  .inputbar{
+    align-items: center;
+    gap: 12px;                            /* mais espaço entre input e botão   */
+    padding: 12px 14px calc(12px + env(safe-area-inset-bottom)); /* safe-area */
+  }
+
+  /* campo confortável, sem esmagar o botão */
+  .inputbar input{
+    flex: 1 1 auto;                       /* ocupa o resto, mas pode reduzir   */
+    min-width: 0;                         /* permite encolher só o suficiente  */
+    height: 50px;
+    font-size: 15px;
+    border-radius: 26px;
+  }
+
+  /* BOTÃO: não encolhe + mais redondo */
+  .inputbar button{
+    flex: 0 0 60px !important;            /* << impede shrink e fixa largura   */
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 999px !important;
+  }
+  .inputbar button::before{
+    width: 24px;                           /* ícone maior e proporcional        */
+    height: 24px;
+  }
+}
+
+
+
