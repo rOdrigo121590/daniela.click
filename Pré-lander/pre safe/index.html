@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Paloma Amorim quer conversar</title>
+  <meta name="description" content="Paloma Amorim quer conversar com você. Abra a conversa.">
+  <meta name="robots" content="noindex,follow">
+  <!-- Pré-carregar avatar -->
+  <link rel="preload" as="image" href="assets/avatar.jpg">
+  <style>
+    :root{
+      --bg:#0e1320; --card:#151b2e; --text:#e8ecf5; --muted:#aab3c7;
+      --accent:#25D366; --accent2:#1ea75b; --shadow:0 18px 60px rgba(0,0,0,.35);
+      --border:rgba(255,255,255,.06);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 600px at 10% -20%, #1b2440 0%, transparent 60%),
+        radial-gradient(900px 500px at 110% 120%, #1b2440 0%, transparent 60%),
+        var(--bg);
+    }
+    .wrap{min-height:100%; display:flex; flex-direction:column}
+    header{padding:14px 18px}
+    .hero{display:grid; place-items:center; padding:42px 18px}
+    .card{
+      width:min(980px, 92vw);
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:20px;
+      box-shadow:var(--shadow);
+      padding:34px 28px 32px;
+      text-align:center;
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    .card:hover{ transform:translateY(-2px); box-shadow:0 22px 70px rgba(0,0,0,.40) }
+
+    /* Avatar maior com aro sutil */
+    .avatar-wrap{display:grid; place-items:center; margin-bottom:10px}
+    .avatar{
+      width:128px; height:128px; border-radius:50%; object-fit:cover; display:block;
+      border:2px solid rgba(255,255,255,.12);
+      box-shadow:0 6px 20px rgba(0,0,0,.25);
+    }
+
+    /* Badge Online animado (discreto) */
+    .online{
+      display:inline-flex; align-items:center; gap:8px;
+      margin:8px auto 0; padding:6px 10px;
+      background:rgba(46,160,67,.08); color:#82f2a5;
+      border:1px solid rgba(46,160,67,.25); border-radius:999px;
+      font-size:14px; letter-spacing:.2px;
+    }
+    .online .dot{
+      width:8px; height:8px; border-radius:50%; background:#2ea043; position:relative;
+    }
+    .online .dot::after{
+      content:""; position:absolute; inset:-6px; border-radius:50%;
+      border:2px solid rgba(46,160,67,.45);
+      animation:ping 1.8s cubic-bezier(.2,0,.2,1) infinite;
+    }
+    @keyframes ping{
+      0%{ transform:scale(.4); opacity:.9 }
+      70%{ transform:scale(1.8); opacity:0 }
+      100%{ transform:scale(1.8); opacity:0 }
+    }
+
+    h1{margin:10px 0 10px; font-size:clamp(26px, 5vw, 44px); letter-spacing:.2px}
+    p.lead{color:var(--muted); margin:0 0 20px; font-size:clamp(14px, 2.4vw, 16px)}
+
+    .cta{display:flex; justify-content:center; margin-top:10px}
+    .btn{
+      background:var(--accent); color:#fff; border:none; border-radius:14px;
+      padding:16px 22px; font-weight:800; letter-spacing:.2px; cursor:pointer;
+      min-width:240px; font-size:17px;
+      box-shadow:0 12px 32px rgba(37,211,102,.25);
+      transition:transform .05s ease, background .2s ease, box-shadow .2s ease;
+    }
+    .btn:hover{ background:var(--accent2); box-shadow:0 12px 36px rgba(30,167,91,.30) }
+    .btn:active{ transform:translateY(1px) }
+    .btn:focus{ outline:3px solid rgba(37,211,102,.35); outline-offset:2px }
+
+    footer{
+      margin-top:auto; padding:22px 18px; color:var(--muted); font-size:14px;
+      display:flex; align-items:center; justify-content:center; gap:16px; flex-wrap:wrap;
+      border-top:1px solid var(--border);
+    }
+    footer a{color:#cfe3ff; text-decoration:none} footer a:hover{text-decoration:underline}
+
+    /* Cookie bar (opcional, simples) */
+    #cookiebar{
+      position:fixed; left:12px; right:12px; bottom:12px; z-index:50; display:none;
+      background:#0f1426; color:var(--text); border:1px solid var(--border);
+      border-radius:12px; gap:12px; align-items:center; padding:12px 14px; box-shadow:var(--shadow)
+    }
+    #cookiebar p{margin:0; color:var(--muted); font-size:14px}
+    #cookiebar .row{display:flex; gap:10px; align-items:center; margin-left:auto}
+    #cookie-accept{background:#2f855a; border:none; color:#fff; padding:10px 12px; border-radius:10px; cursor:pointer}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header></header>
+
+    <section class="hero">
+      <div class="card" role="region" aria-label="Convite para conversa">
+        <div class="avatar-wrap">
+          <img class="avatar" src="assets/avatar.jpg" alt="Foto de perfil de Paloma Amorim">
+          <div class="online" aria-live="polite"><span class="dot"></span> Online</div>
+        </div>
+
+        <h1>Paloma Amorim quer conversar</h1>
+        <p class="lead">Abra a conversa para responder.</p>
+
+        <div class="cta">
+          <button id="enter-btn" class="btn" aria-label="Abrir conversa">Abrir conversa</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>© <span id="y"></span> Conversa privada.</footer>
+  </div>
+
+  <!-- Cookie bar (opcional) -->
+  <div id="cookiebar" role="region" aria-label="Aviso de cookies">
+    <p>Usamos cookies técnicos para melhorar sua experiência.</p>
+    <div class="row"><button id="cookie-accept">OK</button></div>
+  </div>
+
+  <script>
+    /* ================== CONFIG ================== */
+    const DEST_URL = "https://daniela.click/Funil%20HOT%20-%20Completo/Conversa%20-%20Copia/index.html";  // <-- TROQUE AQUI
+    const qs = location.search;
+
+    // Preconnect dinâmico ao host do chat (micro performance)
+    try{
+      const u = new URL(DEST_URL);
+      const l = document.createElement('link');
+      l.rel = 'preconnect'; l.href = u.origin;
+      document.head.appendChild(l);
+    }catch{}
+
+    // Ano no rodapé
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Cookie bar simples
+    const cbar = document.getElementById('cookiebar');
+    if (localStorage.getItem('cookie_ok') !== '1'){ cbar.style.display = 'flex'; }
+    document.getElementById('cookie-accept').onclick = ()=>{ localStorage.setItem('cookie_ok','1'); cbar.remove(); };
+
+    // CTA → preserva UTMs
+    const toChat = () => {
+      const url = DEST_URL + (qs ? (DEST_URL.includes("?") ? "&" : "?") + qs.slice(1) : "");
+      location.href = url;
+    };
+    document.getElementById('enter-btn').addEventListener('click', toChat);
+  </script>
+</body>
+</html>
