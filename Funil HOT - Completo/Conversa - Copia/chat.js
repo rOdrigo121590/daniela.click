@@ -2,7 +2,7 @@
 const SETTINGS = {
   contactName: "Paloma Amorim",
   avatar: "assets/avatar.jpg",
-  checkoutURL: "https://pay.cakto.com.br/ccgprsg_567428",
+  checkoutURL: "https://pay.cakto.com.br/e29uo79_685023",
 
   // 1) Pré-nome — pausa após o 1º áudio para pedir o nome
   preName: [
