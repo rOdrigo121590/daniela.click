@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Responsivo Tela Cheia</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+
+        .fullscreen {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .fullscreen img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;   /* mantém proporção */
+        }
+
+        /* Ajustes para celular */
+        @media (max-width: 768px) {
+            .fullscreen img {
+                object-position: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="fullscreen">
+        <img src="Captura de tela 2025-12-24 174847.png" alt="Imagem responsiva tela cheia">
+    </div>
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Aviso de Cookies Popup</title>
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    
+
+    /* Efeito de fundo desfocado */
+    .blur {
+        filter: blur(6px) brightness(0.7);
+    }
+
+    /* POP-UP (modal) */
+    #popup-cookies {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 350px;
+        background: white;
+        padding: 25px;
+        text-align: center;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.4);
+        z-index: 9999;
+        display: none;
+        animation: aparecer 0.4s ease;
+    }
+
+    /* Título em laranja */
+    #popup-cookies h3 {
+        color: orange;
+    }
+
+    /* Parágrafo com cor preta */
+    #popup-cookies p {
+        color: black;
+    }
+
+    @keyframes aparecer {
+        from {
+            opacity: 0;
+            transform: translate(-50%, -45%);
+        }
+        to {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
+    }
+
+    /* Botão */
+    #popup-cookies button {
+        padding: 10px 20px;
+        border: none;
+        background: #0078ff;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+    /* Fundo escurecido */
+    #overlay {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.8);
+        top: 0;
+        left: 0;
+        z-index: 9998;
+        display: none;
+    }
+
+    /* Animação de fechamento */
+    #popup-cookies.fade-out {
+        animation: desaparecer 0.4s forwards;
+    }
+
+    @keyframes desaparecer {
+        from {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
+        to {
+            opacity: 0;
+            transform: translate(-50%, -45%);
+        }
+    }
+
+    /* Responsivo para telas pequenas */
+    @media (max-width: 400px) {
+        #popup-cookies {
+            width: 90%;
+            padding: 20px;
+        }
+    }
+</style>
+</head>
+<body>
+
+
+
+<div id="overlay"></div>
+
+<div id="popup-cookies">
+    <h3>Política de Cookies</h3>
+    <p>Este site usa cookies para personalizar conteúdo e anúncios, fornecer recursos de mídia social e analisar nosso tráfego. Ao clicar em Aceitar, você concorda com o uso de cookies. Para mais informações, por favor visite nossa  <a href="https://go.perfectpay.com.br/PPU38CQ56DK" class="close-btn cta" id="close-popup"> Política de Cookies</a>
+             <p></p>
+    
+    <a href="https://go.perfectpay.com.br/PPU38CQ56DK" class="close-btn cta" id="close-popup"> <button onclick="aceitarCookies()">Aceitar</button></a>
+             <p></p>
+</div>
+
+<script>
+    window.onload = function() {
+        // Mostrar popup apenas se o usuário não tiver aceitado ainda
+        if (!localStorage.getItem("cookiesAceitos")) {
+            document.getElementById("popup-cookies").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+            document.getElementById("conteudo").classList.add("blur");
+        }
+    }
+
+    function aceitarCookies() {
+        // Salva que o usuário aceitou cookies
+        localStorage.setItem("cookiesAceitos", "true");
+
+        // Fecha o pop-up com animação
+        const popup = document.getElementById("popup-cookies");
+        popup.classList.add("fade-out");
+        document.getElementById("overlay").style.display = "none";
+
+        setTimeout(() => {
+            popup.style.display = "none";
+            document.getElementById("conteudo").classList.remove("blur");
+
+            // Redireciona para o link desejado
+            window.location.href = "https://go.perfectpay.com.br/PPU38CQ56DK"; // <--- Coloque seu link aqui
+        }, 400);
+    }
+
+    // Fechar clicando no overlay
+    document.getElementById("overlay").onclick = aceitarCookies;
+</script>
+
+</body>
+</html>
+
+</body>
+</html>
+
