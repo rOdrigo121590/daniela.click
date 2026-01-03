@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Quiz com Barra Vermelha</title>
+<style>
+* { box-sizing: border-box; margin:0; padding:0; }
+html, body { height:100%; width:100%; font-family:Arial,sans-serif; background:#fff; }
+body { display:flex; justify-content:center; align-items:flex-start; color:#fff; padding-top:50px; }
+
+.container {
+    background:#fff;
+    color:#333;
+    width:360px;
+    padding:25px;
+    border-radius:14px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,0.25);
+    margin-bottom:50px;
+}
+
+.progress-container { width:100%; background:#e0e0e0; border-radius:20px; height:30px; margin-top:20px; overflow:hidden; }
+.progress-bar { height:100%; width:0%; text-align:center; line-height:30px; color:#fff; font-weight:bold; border-radius:20px; transition: width 1s ease; background:#dc3545; }
+
+h1 { font-size:22px; margin-bottom:5px; }
+.descricao { font-size:14px; color:#666; margin-bottom:15px; }
+
+.opcao { background:#f2f2f2; margin-top:12px; padding:14px; border-radius:10px; cursor:pointer; transition:all 0.2s ease; font-weight:bold; }
+.opcao:hover { background:#e0e0e0; transform:scale(1.02); }
+.opcao.correta { background:#c8f7c5; }
+.opcao.errada { background:#f7c5c5; }
+
+button { margin-top:20px; width:100%; padding:14px; border:none; border-radius:10px; font-size:16px; background:#1e3c72; color:#fff; cursor:pointer; transition: background 0.3s; }
+button:hover { background:#16305c; }
+
+.hidden { display:none; }
+iframe { display:none; width:100vw; height:100vh; border:none; position:fixed; top:0; left:0; z-index:9999; }
+</style>
+</head>
+<body>
+
+<div class="container" id="quizContainer">
+    <!-- Imagem acima do título/pergunta -->
+    <img id="quizImagem" src="profesora julia.png" 
+         alt="Imagem do quiz" style="width:100%; border-radius:10px; margin-bottom:15px;">
+
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+    <h1 id="titulo">Todo lo que necesitas</h1>
+    <!-- Descrição abaixo do título -->
+    <p id="descricao" class="descricao">¿Salvamos el tuyo? (Tarda 2 minutos)</p>
+
+    <div id="opcoes" class="hidden">
+        <div class="opcao" onclick="responder(0)" id="op0"></div>
+        <div class="opcao" onclick="responder(1)" id="op1"></div>
+        <div class="opcao" onclick="responder(2)" id="op2"></div>
+    </div>
+
+    <button id="botao" onclick="acaoBotao()">para empezar</button>
+
+    <div id="resumo" class="hidden">
+        <div class="progress-container">
+            <div class="progress-bar" id="resultado-bar"></div>
+        </div>
+    </div>
+
+    <button id="botaoHotmart" class="hidden" onclick="carregarHotmart()">Quero acessar!</button>
+</div>
+
+<iframe id="iframeHotmart"></iframe>
+
+<script>
+const quizImagem = document.getElementById("quizImagem");
+const descricao = document.getElementById("descricao");
+
+const quiz = [
+    { pergunta: "¿Puedes decir este trabalenguas rápidamente sin trabarte?", opcoes: ["✅ Sí, sin errores.", " ⚠️ Más o menos", " ❌ No puedo"], correta: 0, img: "ad1.jpeg", desc: "Sea 100% honesto." },
+    { pergunta: "¿Puedes repetirlo correctamente tres veces seguidas sin cometer ningún error?", opcoes: ["✅Sí, sin duda.", " ⚠️ A veces lo logro", " ❌ No puedo repetirlo"], correta: 0,  desc: "Sea 100% honesto." },
+    { pergunta: "¿Puedes completar el trabalenguas sin detenerte ni trabarte con las palabras?", opcoes: [" ✅Sí, completamente.", " ⚠️ A veces me detengo o cometo errores", " ❌No puedo completarlo.o"], correta: 0, desc: "Sea 100% honesto." }
+];
+
+let indice = -1;
+let respostas = [];
+
+const titulo = document.getElementById("titulo");
+const opcoesDiv = document.getElementById("opcoes");
+const botao = document.getElementById("botao");
+const progressBar = document.getElementById("progress-bar");
+const resumo = document.getElementById("resumo");
+const resultadoBar = document.getElementById("resultado-bar");
+const botaoHotmart = document.getElementById("botaoHotmart");
+const iframeHotmart = document.getElementById("iframeHotmart");
+const quizContainer = document.getElementById("quizContainer");
+
+function acaoBotao() {
+    indice++;
+    botao.classList.add("hidden");
+    opcoesDiv.classList.remove("hidden");
+    carregarPergunta();
+    atualizarBarra();
+}
+
+function carregarPergunta() {
+    const q = quiz[indice];
+    titulo.innerText = q.pergunta;
+    descricao.innerText = q.desc || "";
+
+    // Atualiza a imagem apenas se existir
+    if(q.img){
+        quizImagem.src = q.img;
+        quizImagem.style.display = "block";
+    } else {
+        quizImagem.style.display = "none";
+    }
+
+    q.opcoes.forEach((texto,i)=>{
+        const op = document.getElementById("op"+i);
+        op.className="opcao";
+        op.innerText=texto;
+    });
+    atualizarBarra();
+}
+
+function atualizarBarra() {
+    const total = quiz.length;
+    const atual = indice + 1;
+    progressBar.style.width = ((atual / total) * 100) + "%";
+}
+
+function responder(i) {
+    const correta = quiz[indice].correta;
+    const opcoes = document.querySelectorAll(".opcao");
+    respostas.push(i);
+    if(i===correta) opcoes[i].classList.add("correta");
+    else { opcoes[i].classList.add("errada"); opcoes[correta].classList.add("correta"); }
+
+    setTimeout(()=>{
+        indice++;
+        if(indice<quiz.length) carregarPergunta();
+        else mostrarResumo();
+    },800);
+}
+
+function mostrarResumo() {
+    titulo.innerText="😂Nível detectado: Iniciante Ahora que conocemos tu nivel, te brindaremos valiosas opciones para dominar los trabalenguas.👇";
+    descricao.innerText = "";
+    opcoesDiv.classList.add("hidden");
+    resumo.classList.remove("hidden");
+    botaoHotmart.classList.remove("hidden");
+    progressBar.style.width="100%";
+
+    const acertos = respostas.filter((r,i) => r===quiz[i].correta).length;
+    const total = quiz.length;
+    const porcentagem = (acertos/total)*100;
+
+    resultadoBar.style.width = porcentagem + "%";
+    resultadoBar.style.background = "#dc3545"; // sempre vermelho
+    resultadoBar.innerText = `${acertos} de ${total} acertos`;
+}
+
+// Função final: fullscreen Hotmart
+function carregarHotmart() {
+    quizContainer.style.display="none";
+    resumo.style.display="none";
+    botaoHotmart.style.display="none";
+
+    iframeHotmart.src="https://pay.hotmart.com/Q103607975L?off=sy9cu7sb&checkoutMode=10";
+    iframeHotmart.style.display="block";
+}
+</script>
+</body>
+</html>
