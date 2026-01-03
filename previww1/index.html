@@ -2,53 +2,151 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Quiz com Barra Vermelha</title>
 <style>
+/* Reset básico */
 * { box-sizing: border-box; margin:0; padding:0; }
-html, body { height:100%; width:100%; font-family:Arial,sans-serif; background:#fff; }
-body { display:flex; justify-content:center; align-items:flex-start; color:#fff; padding-top:50px; }
+html, body { height:100%; width:100%; font-family:Arial,sans-serif; background:#f5f5f5; }
 
+/* Corpo centralizado */
+body {
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    padding:20px;
+}
+
+/* Container do quiz */
 .container {
     background:#fff;
     color:#333;
-    width:360px;
-    padding:25px;
-    border-radius:14px;
+    width:100%;
+    max-width:420px;
+    padding:20px;
+    border-radius:16px;
     text-align:center;
-    box-shadow:0 15px 40px rgba(0,0,0,0.25);
-    margin-bottom:50px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.2);
+    margin:0 auto 40px;
 }
 
-.progress-container { width:100%; background:#e0e0e0; border-radius:20px; height:30px; margin-top:20px; overflow:hidden; }
-.progress-bar { height:100%; width:0%; text-align:center; line-height:30px; color:#fff; font-weight:bold; border-radius:20px; transition: width 1s ease; background:#dc3545; }
+/* Barra de progresso */
+.progress-container {
+    width:100%;
+    background:#e0e0e0;
+    border-radius:20px;
+    height:30px;
+    margin-top:20px;
+    overflow:hidden;
+}
 
-h1 { font-size:22px; margin-bottom:5px; }
-.descricao { font-size:14px; color:#666; margin-bottom:15px; }
+.progress-bar {
+    height:100%;
+    width:0%;
+    text-align:center;
+    line-height:30px;
+    color:#fff;
+    font-weight:bold;
+    border-radius:20px;
+    transition: width 0.5s ease;
+    background:#dc3545;
+}
 
-.opcao { background:#f2f2f2; margin-top:12px; padding:14px; border-radius:10px; cursor:pointer; transition:all 0.2s ease; font-weight:bold; }
-.opcao:hover { background:#e0e0e0; transform:scale(1.02); }
+/* Título e descrição */
+h1 {
+    font-size:20px;
+    margin-bottom:5px;
+    line-height:1.3;
+}
+
+.descricao {
+    font-size:14px;
+    color:#666;
+    margin-bottom:15px;
+}
+
+/* Imagem do quiz */
+#quizImagem {
+    width:100%;
+    max-height:220px;
+    object-fit:cover;
+    border-radius:12px;
+    margin-bottom:15px;
+    display:block;
+}
+
+/* Opções de resposta */
+.opcao {
+    background:#f2f2f2;
+    margin-top:12px;
+    padding:16px;
+    border-radius:12px;
+    cursor:pointer;
+    transition:all 0.2s ease;
+    font-weight:bold;
+    font-size:15px;
+}
+
+.opcao:hover { background:#e0e0e0; }
+
+@media (hover:none) {
+    .opcao:hover { background:#f2f2f2; }
+}
+
 .opcao.correta { background:#c8f7c5; }
 .opcao.errada { background:#f7c5c5; }
 
-button { margin-top:20px; width:100%; padding:14px; border:none; border-radius:10px; font-size:16px; background:#1e3c72; color:#fff; cursor:pointer; transition: background 0.3s; }
+/* Botões */
+button {
+    margin-top:20px;
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    font-size:16px;
+    background:#1e3c72;
+    color:#fff;
+    cursor:pointer;
+    transition: background 0.3s;
+}
+
 button:hover { background:#16305c; }
 
+/* Esconder elementos */
 .hidden { display:none; }
-iframe { display:none; width:100vw; height:100vh; border:none; position:fixed; top:0; left:0; z-index:9999; }
+
+/* Iframe Hotmart fullscreen */
+iframe {
+    display:none;
+    width:100vw;
+    height:100vh;
+    border:none;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:9999;
+    background:#fff;
+}
+
+/* Ajustes para desktop maior */
+@media (min-width:768px){
+    h1 { font-size:22px; }
+    .descricao { font-size:15px; }
+    .opcao { font-size:16px; padding:18px; }
+}
 </style>
 </head>
 <body>
 
 <div class="container" id="quizContainer">
-    <!-- Imagem acima do título/pergunta -->
-    <img id="quizImagem" src="profesora julia.png" 
-         alt="Imagem do quiz" style="width:100%; border-radius:10px; margin-bottom:15px;">
+    <img id="quizImagem" src="profesora julia.png" alt="Imagem do quiz">
 
     <div class="progress-container">
         <div class="progress-bar" id="progress-bar"></div>
     </div>
+
     <h1 id="titulo">Todo lo que necesitas</h1>
-    <!-- Descrição abaixo do título -->
     <p id="descricao" class="descricao">¿Salvamos el tuyo? (Tarda 2 minutos)</p>
 
     <div id="opcoes" class="hidden">
@@ -71,18 +169,9 @@ iframe { display:none; width:100vw; height:100vh; border:none; position:fixed; t
 <iframe id="iframeHotmart"></iframe>
 
 <script>
+// Elementos
 const quizImagem = document.getElementById("quizImagem");
 const descricao = document.getElementById("descricao");
-
-const quiz = [
-    { pergunta: "¿Puedes decir este trabalenguas rápidamente sin trabarte?", opcoes: ["✅ Sí, sin errores.", " ⚠️ Más o menos", " ❌ No puedo"], correta: 0, img: "ad1.jpeg", desc: "Sea 100% honesto." },
-    { pergunta: "¿Puedes repetirlo correctamente tres veces seguidas sin cometer ningún error?", opcoes: ["✅Sí, sin duda.", " ⚠️ A veces lo logro", " ❌ No puedo repetirlo"], correta: 0,  desc: "Sea 100% honesto." },
-    { pergunta: "¿Puedes completar el trabalenguas sin detenerte ni trabarte con las palabras?", opcoes: [" ✅Sí, completamente.", " ⚠️ A veces me detengo o cometo errores", " ❌No puedo completarlo.o"], correta: 0, desc: "Sea 100% honesto." }
-];
-
-let indice = -1;
-let respostas = [];
-
 const titulo = document.getElementById("titulo");
 const opcoesDiv = document.getElementById("opcoes");
 const botao = document.getElementById("botao");
@@ -93,6 +182,16 @@ const botaoHotmart = document.getElementById("botaoHotmart");
 const iframeHotmart = document.getElementById("iframeHotmart");
 const quizContainer = document.getElementById("quizContainer");
 
+let indice = -1;
+let respostas = [];
+
+const quiz = [
+    { pergunta: "¿Puedes decir este trabalenguas rápidamente sin trabarte?", opcoes: ["✅ Sí, sin errores.", " ⚠️ Más o menos", " ❌ No puedo"], correta: 0, img: "ad1.jpeg", desc: "Sea 100% honesto." },
+    { pergunta: "¿Puedes repetirlo correctamente tres veces seguidas sin cometer ningún error?", opcoes: ["✅Sí, sin duda.", " ⚠️ A veces lo logro", " ❌ No puedo repetirlo"], correta: 0, desc: "Sea 100% honesto." },
+    { pergunta: "¿Puedes completar el trabalenguas sin detenerte ni trabarte con las palabras?", opcoes: [" ✅Sí, completamente.", " ⚠️ A veces me detengo o cometo errores", " ❌No puedo completarlo.o"], correta: 0, desc: "Sea 100% honesto." }
+];
+
+// Função iniciar quiz
 function acaoBotao() {
     indice++;
     botao.classList.add("hidden");
@@ -101,12 +200,12 @@ function acaoBotao() {
     atualizarBarra();
 }
 
+// Carrega cada pergunta
 function carregarPergunta() {
     const q = quiz[indice];
     titulo.innerText = q.pergunta;
     descricao.innerText = q.desc || "";
 
-    // Atualiza a imagem apenas se existir
     if(q.img){
         quizImagem.src = q.img;
         quizImagem.style.display = "block";
@@ -119,15 +218,18 @@ function carregarPergunta() {
         op.className="opcao";
         op.innerText=texto;
     });
+
     atualizarBarra();
 }
 
+// Atualiza barra de progresso
 function atualizarBarra() {
     const total = quiz.length;
     const atual = indice + 1;
     progressBar.style.width = ((atual / total) * 100) + "%";
 }
 
+// Ao responder
 function responder(i) {
     const correta = quiz[indice].correta;
     const opcoes = document.querySelectorAll(".opcao");
@@ -142,8 +244,9 @@ function responder(i) {
     },800);
 }
 
+// Mostra resultado final
 function mostrarResumo() {
-    titulo.innerText="😂Nível detectado: Iniciante Ahora que conocemos tu nivel, te brindaremos valiosas opciones para dominar los trabalenguas.👇";
+    titulo.innerText="😂Nível detectado: Iniciante. Ahora que conocemos tu nivel, te brindaremos valiosas opciones para dominar los trabalenguas.👇";
     descricao.innerText = "";
     opcoesDiv.classList.add("hidden");
     resumo.classList.remove("hidden");
@@ -155,11 +258,11 @@ function mostrarResumo() {
     const porcentagem = (acertos/total)*100;
 
     resultadoBar.style.width = porcentagem + "%";
-    resultadoBar.style.background = "#dc3545"; // sempre vermelho
+    resultadoBar.style.background = "#dc3545";
     resultadoBar.innerText = `${acertos} de ${total} acertos`;
 }
 
-// Função final: fullscreen Hotmart
+// Carrega Hotmart fullscreen
 function carregarHotmart() {
     quizContainer.style.display="none";
     resumo.style.display="none";
