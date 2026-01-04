@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Acesso Exclusivo</title>
+
+<style>
+* { box-sizing: border-box; margin:0; padding:0; }
+
+html, body {
+    height:100%;
+    font-family: Arial, sans-serif;
+    background:#f5f5f5;
+}
+
+body {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.container {
+    background:#fff;
+    width:100%;
+    max-width:420px;
+    padding:24px;
+    border-radius:16px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,0.2);
+}
+
+#imagem {
+    width:100%;
+    max-height:240px;
+    object-fit:cover;
+    border-radius:20px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    margin-bottom:20px;
+    border: 2px solid #fff;
+}
+
+h1 {
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+.descricao {
+    font-size:14px;
+    color:#666;
+    margin-bottom:20px;
+}
+
+.tap-btn {
+    background:#ff8c00;
+    color:#fff;
+    padding:16px;
+    border-radius:14px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    animation:pulse 1.2s infinite;
+}
+
+.tap-btn:hover {
+    background:#ff7a00;
+}
+
+@keyframes pulse {
+    0% { transform:scale(1); }
+    50% { transform:scale(1.04); }
+    100% { transform:scale(1); }
+}
+
+iframe {
+    display:none;
+    position:fixed;
+    inset:0;
+    width:100vw;
+    height:100vh;
+    border:none;
+    z-index:9999;
+    background:#fff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <img id="imagem" src="profesora julia.png" alt="Produto Destacado">
+
+    <h1>⚠️ No es para cualquiera</h1>
+
+    <p class="descricao">
+        Descubre cómo entrenar tu mente y dominar los trabalenguas en minutos.
+    </p>
+
+    <button class="tap-btn" onclick="abrirHotmart()">
+        👆 descarga gratuita
+    </button>
+</div>
+
+<iframe id="iframeHotmart"></iframe>
+
+<script>
+const HOTMART_URL = "https://pay.hotmart.com/Q103607975L?off=sy9cu7sb&checkoutMode=10";
+const iframeHotmart = document.getElementById("iframeHotmart");
+
+let jaClicou = false;
+let fallbackTimer;
+
+// Pré-carrega o iframe discretamente para abrir instantaneamente
+iframeHotmart.src = HOTMART_URL;
+
+function abrirHotmart() {
+    if (jaClicou) return;
+    jaClicou = true;
+
+    // Mostra o iframe imediatamente
+    iframeHotmart.style.display = "block";
+
+    // Fallback caso o iframe não carregue
+    fallbackTimer = setTimeout(() => {
+        window.location.href = HOTMART_URL;
+    }, 8000);
+}
+
+// Cancela fallback se o iframe carregar
+iframeHotmart.onload = () => {
+    clearTimeout(fallbackTimer);
+};
+</script>
+
+</body>
+</html>
