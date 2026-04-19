@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HNPCPSBL3E"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HNPCPSBL3E');
+</script>
+
+<meta charset="UTF-8">
+<title>Resultado</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body { font-family: Arial; background: #f5f5f5; text-align: center; margin: 0; }
+.container { max-width: 400px; margin: auto; background: #fff; padding: 20px; }
+.saldo { font-size: 28px; color: green; margin: 20px 0; font-weight: bold; }
+.btn { background:#28a745; color:#fff; padding:15px; margin-top:20px; border-radius:6px; cursor:pointer; }
+.timer { color:red; font-weight:bold; margin-top:10px; }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>💰 Sistema de saque liberado!</h2>
+
+<div id="saldo" class="saldo"></div>
+
+<p><b>⚠️ Seu saldo está reservado por tempo limitado!</b></p>
+
+<div id="timer" class="timer"></div>
+
+<div id="atividade"></div>
+
+<div class="btn" onclick="sacar()">SACAR AGORA</div>
+
+</div>
+
+<script>
+// saldo
+let saldo = Number(localStorage.getItem("saldo")) || 0;
+document.getElementById("saldo").innerHTML = "Saldo: $" + saldo;
+
+// timer persistente
+let tempoFinal = localStorage.getItem("tempoFinal");
+
+if(!tempoFinal){
+  tempoFinal = Date.now() + (5 * 60 * 1000);
+  localStorage.setItem("tempoFinal", tempoFinal);
+}
+
+function atualizar(){
+  let diff = Math.floor((tempoFinal - Date.now()) / 1000);
+
+  if(diff <= 0){
+    document.getElementById("timer").innerHTML = "⛔ Tempo esgotado!";
+    return;
+  }
+
+  let m = Math.floor(diff/60);
+  let s = diff%60;
+  if(s < 10) s = "0"+s;
+
+  document.getElementById("timer").innerHTML = "Tempo restante: " + m + ":" + s;
+
+  setTimeout(atualizar,1000);
+}
+
+atualizar();
+
+// atividade
+const msgs = [
+"🔥 Alguém acabou de concluir o processo",
+"🔥 Usuário avançou agora",
+"🔥 Nova atividade registrada",
+"🔥 Outro usuário finalizou",
+"🔥 Mais um acesso recente"
+];
+
+function atividade(){
+  document.getElementById("atividade").innerText =
+    msgs[Math.floor(Math.random()*msgs.length)];
+}
+
+atividade();
+setInterval(atividade,4000);
+
+// botão
+function sacar(){
+  alert("Redirecionando...");
+  window.location.href = "https://seulink.com";
+}
+</script>
+
+</body>
+</html>

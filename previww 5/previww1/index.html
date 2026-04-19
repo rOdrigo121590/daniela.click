@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HNPCPSBL3E"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HNPCPSBL3E');
+</script>
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-TFPGZV6W');</script>
+<!-- End Google Tag Manager -->
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quiz com Barra Vermelha</title>
+<style>
+/* Reset básico */
+* { box-sizing: border-box; margin:0; padding:0; }
+html, body { height:100%; width:100%; font-family:Arial,sans-serif; background:#f5f5f5; }
+
+/* Corpo centralizado */
+body {
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    padding:20px;
+}
+
+/* Container do quiz */
+.container {
+    background:#fff;
+    color:#333;
+    width:100%;
+    max-width:420px;
+    padding:20px;
+    border-radius:16px;
+    text-align:center;
+    box-shadow:0 15px 40px rgba(0,0,0,0.2);
+    margin:0 auto 40px;
+}
+
+/* Barra de progresso */
+.progress-container {
+    width:100%;
+    background:#e0e0e0;
+    border-radius:20px;
+    height:30px;
+    margin-top:20px;
+    overflow:hidden;
+}
+
+.progress-bar {
+    height:100%;
+    width:0%;
+    text-align:center;
+    line-height:30px;
+    color:#fff;
+    font-weight:bold;
+    border-radius:20px;
+    transition: width 0.5s ease;
+    background:#dc3545;
+}
+
+/* Título e descrição */
+h1 {
+    font-size:20px;
+    margin-bottom:5px;
+    line-height:1.3;
+}
+
+.descricao {
+    font-size:14px;
+    color:#666;
+    margin-bottom:15px;
+}
+
+/* Imagem do quiz */
+#quizImagem {
+    width:100%;
+    max-height:220px;
+    object-fit:cover;
+    border-radius:12px;
+    margin-bottom:15px;
+    display:block;
+}
+
+/* Opções de resposta */
+.opcao {
+    background:#f2f2f2;
+    margin-top:12px;
+    padding:16px;
+    border-radius:12px;
+    cursor:pointer;
+    transition:all 0.2s ease;
+    font-weight:bold;
+    font-size:15px;
+}
+
+.opcao:hover { background:#e0e0e0; }
+
+@media (hover:none) {
+    .opcao:hover { background:#f2f2f2; }
+}
+
+.opcao.correta { background:#c8f7c5; }
+.opcao.errada { background:#f7c5c5; }
+
+/* Botões */
+button {
+    margin-top:20px;
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    font-size:16px;
+    background:#1e3c72;
+    color:#fff;
+    cursor:pointer;
+    transition: background 0.3s;
+}
+
+button:hover { background:#16305c; }
+
+/* Esconder elementos */
+.hidden { display:none; }
+
+/* Iframe Hotmart fullscreen */
+iframe {
+    display:none;
+    width:100vw;
+    height:100vh;
+    border:none;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:9999;
+    background:#fff;
+}
+
+/* Ajustes para desktop maior */
+@media (min-width:768px){
+    h1 { font-size:22px; }
+    .descricao { font-size:15px; }
+    .opcao { font-size:16px; padding:18px; }
+}
+</style>
+</head>
+<body>
+
+<div class="container" id="quizContainer">
+    <img id="quizImagem" src="profesora julia.png" alt="Imagem do quiz">
+
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <h1 id="titulo">“Evoluciona en tu trabalenguas; continúa leyendo abajo.”</h1>
+    <p id="descricao" class="descricao">¿Salvamos el tuyo? (Tarda 2 minutos)</p>
+
+    <div id="opcoes" class="hidden">
+        <div class="opcao" onclick="responder(0)" id="op0"></div>
+        <div class="opcao" onclick="responder(1)" id="op1"></div>
+        <div class="opcao" onclick="responder(2)" id="op2"></div>
+    </div>
+
+    <button id="botao" onclick="acaoBotao()">para empezar</button>
+
+    <div id="resumo" class="hidden">
+        <div class="progress-container">
+            <div class="progress-bar" id="resultado-bar"></div>
+        </div>
+    </div>
+
+    <button id="botaoHotmart" class="hidden" onclick="carregarHotmart()">¡Quiero acceso!</button>
+</div>
+
+<iframe id="iframeHotmart"></iframe>
+
+<script>
+// Elementos
+const quizImagem = document.getElementById("quizImagem");
+const descricao = document.getElementById("descricao");
+const titulo = document.getElementById("titulo");
+const opcoesDiv = document.getElementById("opcoes");
+const botao = document.getElementById("botao");
+const progressBar = document.getElementById("progress-bar");
+const resumo = document.getElementById("resumo");
+const resultadoBar = document.getElementById("resultado-bar");
+const botaoHotmart = document.getElementById("botaoHotmart");
+const iframeHotmart = document.getElementById("iframeHotmart");
+const quizContainer = document.getElementById("quizContainer");
+
+let indice = -1;
+let respostas = [];
+
+const quiz = [
+    { pergunta: "¿Puedes decir este trabalenguas rápidamente sin trabarte?", opcoes: ["✅ Sí, sin errores.", " ⚠️ Más o menos", " ❌ No puedo"], correta: 0, img: "ad1.jpeg", desc: "Sea 100% honesto." },
+    { pergunta: "¿Puedes repetirlo correctamente tres veces seguidas sin cometer ningún error?", opcoes: ["✅Sí, sin duda.", " ⚠️ A veces lo logro", " ❌ No puedo repetirlo"], correta: 0, desc: "Sea 100% honesto." },
+    { pergunta: "¿Puedes completar el trabalenguas sin detenerte ni trabarte con las palabras?", opcoes: [" ✅Sí, completamente.", " ⚠️ A veces me detengo o cometo errores", " ❌No puedo completarlo.o"], correta: 0, desc: "Sea 100% honesto." }
+];
+
+// Função iniciar quiz
+function acaoBotao() {
+    indice++;
+    botao.classList.add("hidden");
+    opcoesDiv.classList.remove("hidden");
+    carregarPergunta();
+    atualizarBarra();
+}
+
+// Carrega cada pergunta
+function carregarPergunta() {
+    const q = quiz[indice];
+    titulo.innerText = q.pergunta;
+    descricao.innerText = q.desc || "";
+
+    if(q.img){
+        quizImagem.src = q.img;
+        quizImagem.style.display = "block";
+    } else {
+        quizImagem.style.display = "none";
+    }
+
+    q.opcoes.forEach((texto,i)=>{
+        const op = document.getElementById("op"+i);
+        op.className="opcao";
+        op.innerText=texto;
+    });
+
+    atualizarBarra();
+}
+
+// Atualiza barra de progresso
+function atualizarBarra() {
+    const total = quiz.length;
+    const atual = indice + 1;
+    progressBar.style.width = ((atual / total) * 100) + "%";
+}
+
+// Ao responder
+function responder(i) {
+    const correta = quiz[indice].correta;
+    const opcoes = document.querySelectorAll(".opcao");
+    respostas.push(i);
+    if(i===correta) opcoes[i].classList.add("correta");
+    else { opcoes[i].classList.add("errada"); opcoes[correta].classList.add("correta"); }
+
+    setTimeout(()=>{
+        indice++;
+        if(indice<quiz.length) carregarPergunta();
+        else mostrarResumo();
+    },800);
+}
+
+// Mostra resultado final
+function mostrarResumo() {
+    titulo.innerText="😂Nível detectado: Iniciante. Ahora que conocemos tu nivel, te brindaremos valiosas opciones para dominar los trabalenguas.👇";
+    descricao.innerText = "";
+    opcoesDiv.classList.add("hidden");
+    resumo.classList.remove("hidden");
+    botaoHotmart.classList.remove("hidden");
+    progressBar.style.width="100%";
+
+    const acertos = respostas.filter((r,i) => r===quiz[i].correta).length;
+    const total = quiz.length;
+    const porcentagem = (acertos/total)*100;
+
+    resultadoBar.style.width = porcentagem + "%";
+    resultadoBar.style.background = "#dc3545";
+    resultadoBar.innerText = `${acertos} de ${total} acertos`;
+}
+
+// Carrega Hotmart fullscreen
+function carregarHotmart() {
+    quizContainer.style.display="none";
+    resumo.style.display="none";
+    botaoHotmart.style.display="none";
+
+    iframeHotmart.src="https://pay.hotmart.com/Q103607975L?off=sy9cu7sb&checkoutMode=10";
+    iframeHotmart.style.display="block";
+}
+</script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"8e296ba3875744fdbdbd6c683799b8a9","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TFPGZV6W"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+</body>
+</html>
