@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="es">
 <head>
 
-    <!-- Google tag (gtag.js) -->
+<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-HNPCPSBL3E"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
 
-  gtag('config', 'G-HNPCPSBL3E');
+gtag('config', 'G-HNPCPSBL3E');
 </script>
 
 <meta charset="UTF-8">
@@ -29,38 +29,45 @@ body { font-family: Arial; background: #f5f5f5; text-align: center; margin: 0; }
 
 <div class="container">
 
-<h2>💰 Sistema de saque liberado!</h2>
+<h2>💰 ¡Sistema de retiro liberado!</h2>
 
 <div id="saldo" class="saldo"></div>
 
-<p><b>⚠️ Seu saldo está reservado por tempo limitado!</b></p>
+<p><b>⚠️ Tu saldo está reservado por tiempo limitado!</b></p>
 
 <div id="timer" class="timer"></div>
 
 <div id="atividade"></div>
 
-<div class="btn" onclick="sacar()">SACAR AGORA</div>
+<div class="btn" onclick="sacar()">RETIRAR AHORA</div>
 
 </div>
 
 <script>
-// saldo
+
+// 🔥 EVENTO: usuario llegó al resultado
+gtag('event', 'ver_resultado', {
+  event_category: 'funil',
+  event_label: 'pagina_final'
+});
+
+// ===== SALDO =====
 let saldo = Number(localStorage.getItem("saldo")) || 0;
 document.getElementById("saldo").innerHTML = "Saldo: $" + saldo;
 
-// timer persistente
-let tempoFinal = localStorage.getItem("tempoFinal");
+// ===== TIMER CORREGIDO =====
+let tempoFinal = Number(localStorage.getItem("tempoFinal"));
 
 if(!tempoFinal){
   tempoFinal = Date.now() + (5 * 60 * 1000);
   localStorage.setItem("tempoFinal", tempoFinal);
 }
 
-function atualizar(){
+function actualizar(){
   let diff = Math.floor((tempoFinal - Date.now()) / 1000);
 
   if(diff <= 0){
-    document.getElementById("timer").innerHTML = "⛔ Tempo esgotado!";
+    document.getElementById("timer").innerHTML = "⛔ Tiempo agotado";
     return;
   }
 
@@ -68,35 +75,46 @@ function atualizar(){
   let s = diff%60;
   if(s < 10) s = "0"+s;
 
-  document.getElementById("timer").innerHTML = "Tempo restante: " + m + ":" + s;
+  document.getElementById("timer").innerHTML =
+    "Tiempo restante: " + m + ":" + s;
 
-  setTimeout(atualizar,1000);
+  setTimeout(actualizar,1000);
 }
 
-atualizar();
+actualizar();
 
-// atividade
+// ===== ACTIVIDAD =====
 const msgs = [
-"🔥 Alguém acabou de concluir o processo",
-"🔥 Usuário avançou agora",
-"🔥 Nova atividade registrada",
-"🔥 Outro usuário finalizou",
-"🔥 Mais um acesso recente"
+"🔥 Alguien acaba de completar el proceso",
+"🔥 Usuario avanzó al retiro ahora",
+"🔥 Nueva actividad registrada",
+"🔥 Otro usuario finalizó",
+"🔥 Más un acceso reciente"
 ];
 
-function atividade(){
+function actividad(){
   document.getElementById("atividade").innerText =
     msgs[Math.floor(Math.random()*msgs.length)];
 }
 
-atividade();
-setInterval(atividade,4000);
+actividad();
+setInterval(actividad,4000);
 
-// botão
+// ===== BOTÓN (CONVERSIÓN) =====
 function sacar(){
-  alert("Redirecionando...");
-  window.location.href = "https://seulink.com";
+
+  // 🎯 EVENTO DE CONVERSIÓN
+  gtag('event', 'clic_retirar', {
+    event_category: 'conversion',
+    event_label: 'boton_retirar',
+    value: saldo
+  });
+
+ 
+
+  window.location.href = "https://pay.hotmart.com/Q103607975L?off=sy9cu7sb&checkoutMode=10";
 }
+
 </script>
 
 </body>
